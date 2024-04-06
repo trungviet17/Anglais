@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth import User
+from django.contrib.auth.models import User
 from django.utils import timezone 
 # Create your models here.
 
@@ -24,14 +24,14 @@ class StudySet(models.Model):
 
     title = models.CharField(max_length = 200)
     description = models.TextField()
-    folder = models.ForeignKey(Folders, on_delete=models.CASCADE)
-    author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    # folder = models.ForeignKey(Folders, on_delete=models.CASCADE)
+    # author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     learning_time = models.IntegerField(default = 0)
 
     def __str__(self):  
-        return f"{self.folder} - {self.title}" 
+        return self.title
     
-class Word(models): 
+class Word(models.Model): 
     """Class này dùng để biểu diễn """
     class  TypeOfWord(models.TextChoices): 
         ENGLISH = 'en'
@@ -44,7 +44,10 @@ class Word(models):
 
     or_lan = models.CharField(max_length = 3, choices = TypeOfWord.choices, default = TypeOfWord.ENGLISH)
     ne_lan = models.CharField(max_length = 3, choices = TypeOfWord.choices, default = TypeOfWord.VIETNAMESE)
-    studyset = models.ForeignKey(StudySet, on_delete = models.CASCADE)
 
+
+    def __str__(self): 
+        return self.studyset.title
+    
 
 

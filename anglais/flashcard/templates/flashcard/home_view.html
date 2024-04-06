@@ -1,0 +1,36 @@
+{% extends "flashcard/base.html" % }
+
+{% block title %} Flash Card{% endblock %}
+
+
+{% block content  %}
+    <h1>My Workspace</h1>
+
+    <h2>
+
+        <a href ="{% url 'flashcard:new_studyset' %}"> 
+            Create new Studyset
+        </a>
+    </h2>
+
+
+    <h2>
+
+        <a href ="{% url 'flashcard:studysets' %}">
+            See your studyset 
+        </a>
+
+    </h2>
+
+        <a >
+
+
+
+
+        </a>
+
+
+
+
+
+{% endblock %}

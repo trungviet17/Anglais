@@ -1,0 +1,20 @@
+{% block content %}
+
+    <h1>Create New StudySet</h1>
+
+
+    <form action = "{% url 'flashcard:new_studyset' %}" method = "post">
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <input type="submit" id = "SaveButton" name="save" value="Save" >
+        <input type ="submit" id = "SaveandAddButton" name = "saveandadd" value = "Save and Add Card">
+
+    </form>
+
+  
+
+
+{% endblock %}

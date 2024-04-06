@@ -1,0 +1,175 @@
+/* font */
+@font-face {
+  font-family: 'Custom Font';
+  src: url('../font/LekyCalgria.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Custom Font 2';
+  src: url('../font/PerfectlyVintagesFontbyKeithzo.otf') format('opentype');
+}
+
+/* background image */
+body {
+    background-color: #1e3021;
+    overflow-x: hidden;
+    /* background-image: url("../images/bg.jpg"); */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:100% 100%;
+}
+
+/* cute dog at the bottom */
+.fixed-bottom-left {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+
+/* change column color when hovered */
+.column-settings:hover {
+    background-color: rgba(200, 232, 253, 0.2);
+    z-index: 999;
+    border-radius: 5%;
+}
+
+/* change column color when clicked */
+.column-settings:active {
+  background-color: rgba(175, 224, 255, 0.2);
+  z-index: 999;
+  border-radius: 5%;
+  box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.1);
+}
+
+/* setting for all 3 columns */
+.column-settings {
+  background-color: rgba(226, 244, 255, 0.2);
+  z-index: 999;
+  border-radius: 5%;
+  box-shadow: 10px 10px 10px 7px rgba(0,0,0,0.1);
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  
+}
+
+.column-settings img {
+  width: 40vh;
+}
+
+.welcome-text {
+  font-family: 'Custom Font', fallback, Arial, Helvetica, sans-serif;
+  color:rgb(255, 255, 255);
+  font-size: 10vh;
+  padding-top: 5vh;
+  
+}
+.sub-welcome-text {
+  font-family: 'Custom Font 2', fallback, Arial, Helvetica, sans-serif;
+  color:rgb(255, 255, 255);
+  font-size: 10vh;
+  padding-top: 5vh;
+  
+}
+.end-text {
+  font-family: 'Custom Font', fallback, Arial, Helvetica, sans-serif;
+  color:rgb(255, 255, 255);
+  font-size: 4vh;
+  padding-top: 2vh;
+  display: flex;
+  
+}
+.sub-end-text {
+  font-family: 'Custom Font 2', fallback, Arial, Helvetica, sans-serif;
+  color:rgb(255, 255, 255);
+  font-size: 2vh;
+  padding-top: 2vh;
+  display: flex;
+  
+}
+
+
+
+/* add this class to anything you want to appear on the top */
+.front-layer {
+    z-index: 9999;
+}
+
+/* animation for the dog */
+@keyframes move-left-right {
+    0% { 
+      left: 0; 
+    }
+    50% { 
+      left: 92%; 
+      transform: scaleX(1);
+    }
+    55% {
+      transform: scaleX(-1);
+    }
+    90% {
+      transform: scaleX(-1);
+    }
+    100% { 
+      left: 0; 
+    }
+  }
+  
+  .moving-image {
+    animation: move-left-right 40s infinite;
+  }
+  
+/* This is for aligning elements in the navbat */
+.navbar-brand {
+  padding-bottom: 0rem;
+}
+
+.logo-image {
+  width: auto;
+  height: 5vh;
+}
+.dog-image {
+  width: auto;
+  height: 15vh;
+}
+.overall_div {
+  color: inherit;
+  text-decoration: none;
+}
+a.no-underline, a.no-underline:hover, a.no-underline:active, a.no-underline:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* settings for the welcome text */
+.welcome-settings {
+  background-color: rgba(226, 244, 255, 0.2);
+  z-index: 999;
+  /* border-radius: 10%; */
+  box-shadow: 10px 10px 10px 7px rgba(0,0,0,0.1);
+  /* margin-top: 2vh; */
+  /* margin-bottom: 2vh; */
+  height: 50vh;
+  background-image: url("../images/bg4.png");
+  
+}
+/* settings for the end text */
+.end-settings {
+  /* display: flex; */
+  background-color: rgba(226, 244, 255, 0.2);
+  z-index: 999;
+  /* border-radius: 10%; */
+  box-shadow: 10px 10px 10px 7px rgba(0,0,0,0.1);
+  /* margin-top: 2vh; */
+  /* margin-bottom: 2vh; */
+  height: 40vh;
+  background-image: url("../images/bg4.png");
+  
+}
+
+/* .outer_column {
+  padding: 100vh 100vh 300vh 100vh;
+} */
+
+/* to make the columns stay far from the side of the screen */
+.screen_side_separator {
+  padding: 5vh 7vh 5vh 7vh;
+}

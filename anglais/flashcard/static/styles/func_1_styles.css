@@ -1,0 +1,63 @@
+/* background image */
+body {
+    background-color: #EAE5E1;
+    overflow-x: hidden;
+    background-image: url("../images/bg3.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:100% 100%;
+}
+
+.set_creator {
+  display: block;
+  justify-content: center;
+}
+.inputFieldContainer {
+  display: flex ;
+  justify-content: center;  
+}
+.set_declarer {
+  display: block;
+  justify-content: center;
+}
+
+.set_container {
+  display: flex ;
+  justify-content: center;  
+}
+.button_declarer {
+  display: block;
+  justify-content: center;
+}
+.button_container {
+  display: flex ;
+  justify-content: center;  
+}
+
+
+
+.welcome-text {
+    padding-top: 5vh;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* add this class to anything you want to appear on the top */
+.front-layer {
+    z-index: 9999;
+}
+
+/* This is for aligning elements in the navbat */
+.navbar-brand {
+  padding-bottom: 0rem;
+}
+
+.logo-image {
+  width: auto;
+  height: 5vh;
+}
+
+
+a.no-underline, a.no-underline:hover, a.no-underline:active, a.no-underline:visited {
+  color: inherit;
+  text-decoration: none;
+}
