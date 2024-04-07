@@ -7,6 +7,7 @@ from .models import Word, StudySet
 from django.contrib import  messages
 
 from django.urls import reverse
+from django.http import JsonResponse
 
 # Create your views here.
 
@@ -97,22 +98,13 @@ class StudySetListView(ListView):
 
 def delete_word(request, id):
     '''Hàm view thực hiện xóa word trong form - sử dụng button'''
-    try: 
-        word = Word.objects.all(id = id) 
-    except  Word.DoesNotExist: 
-        messages.success(
-            request, "Word does not exist"
-        )
+    word = get_object_or_404(Word, id=id)
 
-        return redirect('flashcard:update_studyset', id = word.studyset.id)
-    
-    word.delete()
-    messages.success(
-        request, "Success"
-    )
-
-    return redirect('flashcard:update_studyset', id = word.studyset.id)
-
+    if request.method == 'POST': 
+        word.delete()
+        return JsonResponse({'status': 'success'})
+    else : 
+        return JsonResponse({'status': 'error'}, status = 400)
 
 def delete_studyset(request, id): 
     '''Hàm xóa studyset tại node delete của list_studyset'''
