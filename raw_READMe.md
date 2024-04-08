@@ -31,13 +31,13 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="anglais\flashcard\static\images\main_logo.png" alt="Logo" >
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">Anglais</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    Ứng dụng học tập tiếng anh
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
