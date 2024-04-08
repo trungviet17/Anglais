@@ -13,9 +13,10 @@ from django.http import JsonResponse
 
 
 def home_view(request): 
-    return  render(request, 'flashcard/base.html')
+    return  render(request, 'base.html')
 
-
+def mastermind(request):
+    return render(request, 'english_mastermind/page.html')
 
 def flash_card_home_view(request): 
     return render(request, 'flashcard/home_view.html')
