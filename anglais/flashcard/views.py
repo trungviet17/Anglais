@@ -96,15 +96,18 @@ class StudySetListView(ListView):
     
 
 
-def delete_word(request, id):
+def delete_word(request, form_id, word_id):
     '''Hàm view thực hiện xóa word trong form - sử dụng button'''
-    word = get_object_or_404(Word, id=id)
+    word = get_object_or_404(Word, id=word_id)
 
     if request.method == 'POST': 
         word.delete()
-        return JsonResponse({'status': 'success'})
+        return redirect('flashcard:update_studyset', id=form_id)
     else : 
         return JsonResponse({'status': 'error'}, status = 400)
+    
+
+
 
 def delete_studyset(request, id): 
     '''Hàm xóa studyset tại node delete của list_studyset'''
@@ -170,20 +173,31 @@ def update_studyset(request,  id):
     '''Hàm update thông tin của formset '''
     studyset = get_object_or_404(StudySet, id=id)
     form = SetForm(instance= studyset)
-    formset = WordFormset(instance = studyset)
+    
+    words = Word.objects.all( ).filter (studyset = id)
 
     if request.method == "POST": 
         form = SetForm(data = request.POST, instance = studyset)
-        formset = WordFormset(data = request.POST, instance = studyset)
-        
-        
-        print(formset.errors)
-
-        if form.is_valid() and formset.is_valid(): 
+       
+        if form.is_valid() :
             form.save()
-            formset.save()
-
             
             return redirect('flashcard:studysets')
 
-    return render(request, 'flashcard/update_studyset.html', {'form': form, 'formset': formset})
+    return render(request, 'flashcard/update_studyset.html', {'form': form, 'words': words})
+
+
+def edit_word(request, form_id, word_id): 
+
+    word = get_object_or_404(Word, id = word_id )
+    form = WordForm(instance=word)
+
+    if request.method == "POST" :  
+        form = WordForm(instance=word , data=request.POST)
+
+        if form.is_valid(): 
+            form.save()
+
+            return redirect('flashcard:update_studyset', id=form_id)
+
+    return render(request, 'flashcard/edit_word.html', {'form': form, 'word': word, 'form_id': form_id})

@@ -85,15 +85,15 @@
         </div>
     
         <div class="set_creator">
-          {{ formset.management_form }}
-          <div id="formset-container">
-            {% for form in formset %}
-              <div class="formset-form">
-                {{ form.id }}
-                {{ form.or_lan }} | {{ form.ori_word}} | {{ form.trans_word }} | {{ form.ne_lan }}
+          
+          <div id="words-container">
+            {% for word in words %}
+              <div class="word">
+                
+                {{ word.or_lan }} | {{ word.ori_word}} | {{ word.trans_word }} | {{ word.ne_lan }}
                 
                 
-                <button type="button" class="delete-form-btn">Delete</button>
+                <a href="{% url 'flashcard:edit_word' form.instance.id word.id  %}">Edit</a>
                 
 
               </div>
@@ -109,71 +109,11 @@
     </form>
 
 
-    <script id="empty-form-template" type="text/template">
-
-      <div class="formset-form">
-          {{ formset.empty_form.as_p | safe }}
-          <button type="button"  class="delete-form-btn">Delete</button>
-      </div>
-
-  </script>
+    
 
 
   
-  <script>
-      $(document).ready(function() {
-
-          var totalForms = $('#id_{{ formset.prefix }}-TOTAL_FORMS');
-
-          var formsetContainer = $('#formset-container'); 
-
-          var emptyFormTemplate = $('#empty-form-template').text(); 
-
-      
-
-          // Hàm update lại index của form 
-          function updateElementIdx(el, prefix, index) {
-              var idRegex = new RegExp('(' + prefix + '-\\d+)'); 
-
-              var replacement = prefix + '-' + index; 
-
-              if ($(el).attr("for")) $(el).attr("for", $(el).attr("for").replace(idRegex, replacement)); 
-
-              if (el.id) el.id = el.id.replace(idRegex, replacement); 
-
-              if (el.name) el.name = el.name.replace(idRegex, replacement)
-
-          }
-
-          // Add form button 
-
-          $('#add-form-btn').click(function() {
-
-              var newForm = emptyFormTemplate.replace(/__prefix__/g, totalForms.val()); 
-              formsetContainer.append(newForm); 
-
-              totalForms.val(parseInt(totalForms.val()) + 1); 
-
-          }); 
-
-          // Delete form button 
-          formsetContainer.on('click', '.delete-form-btn', function() {
-              $(this).closest('.formset-form').remove();
-              var forms = formsetContainer.find('.formset-form'); 
-
-              $('#id_{{ formset.prefix }}-TOTAL_FORMS').val(forms.length); 
-
-              for (var i = 0, formCount = form.length; i < formCount; i ++) {
-                  updateElementIdx(forms.get(i), '{{ formset.prefix }}', i); 
-              }
-
-
-          });
-
-      }); 
-
-  </script>
-
+  
 
 
 
