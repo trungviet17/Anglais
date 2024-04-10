@@ -1,0 +1,14 @@
+{% block title %}Create an account{% endblock %}
+
+{% block content %}
+  <h1>Create an account</h1>
+  <p>Please, sign up using the following form:</p>
+  <form method="post" action="{% url 'account:register' %}">
+
+    {{ user_form.as_p }}
+    {% csrf_token %}
+
+    <input type="hidden" name="next" value="{% url 'flashcard:home' %}">
+    <input type="submit" value="Create my account">
+  </form>
+{% endblock %}

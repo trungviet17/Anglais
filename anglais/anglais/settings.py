@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'flashcard.apps.FlashcardConfig',
+    'account.apps.AccountConfig', 
+    
     'bootstrap4',
     'django_htmx',
 ]

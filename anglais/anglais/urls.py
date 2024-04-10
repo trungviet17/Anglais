@@ -19,5 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('flashcard.urls')), #include all urls of flashcards app
-    
+    path('account/', include('account.urls')),
 ]
