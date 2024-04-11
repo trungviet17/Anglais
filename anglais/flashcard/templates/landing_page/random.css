@@ -1,0 +1,14 @@
+/* @font-face {
+    font-family: 'Custom Font';
+    src: url('./LekyCalgria.otf') format('opentype');
+  }
+@font-face {
+    font-family: 'Custom Font 2';
+    src: url('./PerfectlyVintagesFontbyKeithzo.otf') format('opentype');
+}
+
+.lmao {
+    font-family: 'Custom Font', fallback, Arial, Helvetica, sans-serif;
+    padding-top: 5vh;
+    
+  }  */
