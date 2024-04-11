@@ -3,7 +3,7 @@
 <html>
 <head>
   <title>{% block title %}{% endblock %}</title>
-  <link href="{% static "css/base.css" %}" rel="stylesheet">
+  <link href="{% static 'css/base.css' %}" rel="stylesheet">
 </head>
 <body>
   <div id="header">
@@ -13,10 +13,10 @@
         <li {% if section == "dashboard" %}class="selected"{% endif %}>
           <a href="{% url 'dashboard' %}">My dashboard</a>
         </li>
-        <li {% if section == 'images' %}class="selected"{% endif %}>
+        <li {% if section == 'flashcard' %}class="selected"{% endif %}>
           <a href="#">Images</a>
         </li>
-        <li {% if section == "people" %}class="selected"{% endif %}>
+        <li {% if section == "english master mind" %}class="selected"{% endif %}>
           <a href="#">People</a>
         </li>
       </ul>
@@ -25,6 +25,7 @@
       {% if request.user.is_authenticated %}
         Hello {{ request.user.first_name|default:request.user.username }},
         <a href="{% url 'logout' %}">Logout</a>
+        <a href="{% url 'edit' %}">Edit your accout</a>
       {% else %}
         <a href="{% url 'login' %}">Log-in</a>
       {% endif %}
