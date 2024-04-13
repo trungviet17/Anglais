@@ -55,7 +55,7 @@ def register(request):
             new_user.set_password(userform.cleaned_data['password'])
 
             new_user.save()
-            Profile.objects.create(new_user)
+            Profile.objects.create(user=new_user)
             return render(request, 'account/register_done.html', {'new_user': new_user})
         
     userform = UserRegistrationForm()

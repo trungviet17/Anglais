@@ -14,7 +14,7 @@
    {% else %}
 
       <p>Please, use the following form to log-in:</p>
-      <a>If you don't have an account <a href="{% url 'register' %}">register here</a>
+      
    {% endif %}
       <div class="login-form">
          <form action="{% url 'login' %}" method="post">
@@ -25,7 +25,7 @@
             <p><input type="submit" value="Log-in"></p>
          </form>
 
-         <a href="{% url 'register' %}">Register</a>
+         <p>If you don't have an account <a href="{% url 'register' %}">Register here</a> </p>
 
          <p>
             <a href="{% url 'password_reset' %}">
