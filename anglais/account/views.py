@@ -10,7 +10,7 @@ from .models import Profile
 
 @login_required
 def dashboard(request): 
-    return render(request, 'account/dashboard.html', {'section': 'dashboard'})
+    return render(request, 'dashboard.html')
 
 
 def landing_page(request): 

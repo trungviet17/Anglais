@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'flashcard.apps.FlashcardConfig',
+    'english_mastermind.apps.EnglishMastermindConfig',
     
     'bootstrap4',
     'django_htmx',

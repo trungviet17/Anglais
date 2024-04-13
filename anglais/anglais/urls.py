@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('flashcard/', include('flashcard.urls')), #include all urls of flashcards app
     path('', include('account.urls')),
+    path('english_mastermind/', include('english_mastermind.urls')),
 ]
 
 
