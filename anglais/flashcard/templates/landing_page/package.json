@@ -1,10 +1,10 @@
 {
-    "name": "spotless-honorable-dove",
-    "version": "1.0.0",
-    "private": true,
-    "dependencies": {
-      "parcel-bundler": "^1.6.1"
-    },
-    "scripts": {},
-    "devDependencies": {}
-  }
+  "name": "spotless-honorable-dove",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "parcel-bundler": "^1.6.1"
+  },
+  "scripts": {},
+  "devDependencies": {}
+}
