@@ -13,6 +13,10 @@ def dashboard(request):
     return render(request, 'account/dashboard.html', {'section': 'dashboard'})
 
 
+def landing_page(request): 
+    return render(request, 'landing_page.html')
+
+
 
 def user_login(request): 
     """Hàm view của user login"""

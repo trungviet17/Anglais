@@ -8,16 +8,16 @@ from django.contrib import  messages
 
 from django.urls import reverse
 from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
-
+@login_required
 def home_view(request): 
     return  render(request, 'base.html')
 
-def mastermind(request):
-    return render(request, 'english_mastermind/page.html')
 
+@login_required
 def flash_card_home_view(request): 
     return render(request, 'flashcard/home_view.html')
 
@@ -90,13 +90,20 @@ def flash_card_home_view(request):
 #         return {
 #             'words' : WordFormset(self.request.POST or None, self.request.FILES or None, instance = self.object, prefix = "words")
 #         }
+
+
 class StudySetListView(ListView): 
     model = StudySet
     template_name = 'flashcard/studysets.html'
     context_object_name = 'studysets'
+
+    
+    @login_required
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
     
 
-
+@login_required
 def delete_word(request, form_id, word_id):
     '''Hàm view thực hiện xóa word trong form - sử dụng button'''
     word = get_object_or_404(Word, id=word_id)
@@ -109,7 +116,7 @@ def delete_word(request, form_id, word_id):
     
 
 
-
+@login_required
 def delete_studyset(request, id): 
     '''Hàm xóa studyset tại node delete của list_studyset'''
     studyset = get_object_or_404(StudySet, pk=id)
@@ -123,7 +130,7 @@ def delete_studyset(request, id):
 
 
 
-
+@login_required
 def new_studyset(request): 
     '''Hàm tạo studyset mới'''
     if request.method == 'POST':
@@ -142,7 +149,7 @@ def new_studyset(request):
 
     return render(request, 'flashcard/new_studyset.html', {'form': form})
 
-
+@login_required
 def new_word(request, id): 
     '''Tạo formset mới'''
     try :  
@@ -169,7 +176,7 @@ def new_word(request, id):
     return render(request, 'flashcard/new_word.html', context = context)
 
 
-
+@login_required
 def update_studyset(request,  id): 
     '''Hàm update thông tin của formset '''
     studyset = get_object_or_404(StudySet, id=id)
@@ -187,7 +194,7 @@ def update_studyset(request,  id):
 
     return render(request, 'flashcard/update_studyset.html', {'form': form, 'words': words})
 
-
+@login_required
 def edit_word(request, form_id, word_id): 
 
     word = get_object_or_404(Word, id = word_id )

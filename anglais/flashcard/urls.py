@@ -8,7 +8,7 @@ app_name = 'flashcard'
 urlpatterns = [
     # path('', views.home_view, name = 'home'),
     path('', views.flash_card_home_view , name = "flash_card_home_view"),
-    path('english_mastermind/', views.mastermind, name="mastermind"),
+    
     # tạo ra một studyset mới 
     path('new_studyset/', views.new_studyset, name="new_studyset"), 
     path('update/<int:id>' , views.update_studyset, name="update_studyset"), 
