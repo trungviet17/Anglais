@@ -2,6 +2,7 @@
   font-family: 'PerfectlyVintages';
   src: url('./public/font/perfectlyvintagesfontbykeithzo.otf') format('opentype');
 }
+
 .feature-card2-feature-card {
   width: 100%;
   display: flex;
@@ -852,3 +853,4 @@
     padding-bottom: var(--dl-space-space-unit);
   }
 }
+
