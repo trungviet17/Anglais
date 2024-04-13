@@ -5,8 +5,9 @@ cryptography==42.0.5
 Django==4.1.13
 django-bootstrap4==24.1
 django-htmx==1.17.3
+Pillow==9.2.0
 pycparser==2.22
 PyMySQL==1.1.0
 soupsieve==2.5
 sqlparse==0.4.4
-tzdata==2024.1 
+tzdata==2024.1
