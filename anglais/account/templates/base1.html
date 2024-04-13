@@ -46,31 +46,7 @@
   <link href="{% static 'css/base_navbar.css' %}" rel="stylesheet" />
 </head>
 <body>
-  {% comment %} <div id="header">
-    <span class="logo">Anglais</span>
-    {% if request.user.is_authenticated %}
-      <ul class="menu">
-        <li {% if section == "dashboard" %}class="selected"{% endif %}>
-          <a href="{% url 'dashboard' %}">My dashboard</a>
-        </li>
-        <li {% if section == 'flashcard' %}class="selected"{% endif %}>
-          <a href="#">Images</a>
-        </li>
-        <li {% if section == "english master mind" %}class="selected"{% endif %}>
-          <a href="#">People</a>
-        </li>
-      </ul>
-    {% endif %}
-    <span class="user">
-      {% if request.user.is_authenticated %}
-        Hello {{ request.user.first_name|default:request.user.username }},
-        <a href="{% url 'logout' %}">Logout</a>
-        <a href="{% url 'edit' %}">Edit your accout</a>
-      {% else %}
-        <a href="{% url 'login' %}">Log-in</a>
-      {% endif %}
-    </span>
-  </div> {% endcomment %}
+  
   <div class="home-container">
     <header data-thq="thq-navbar" class="home-navbar-interactive">
       <img alt="logo" src="{% static 'img/anglais-1500h.png' %}" class="home-image logo"/>
@@ -79,8 +55,8 @@
           <span class="home-text01 hide_on_small">About</span>
       
           {% if request.user.is_authenticated %}
-            <span {% if section == "dashboard" %}class="home-text01 hide_on_small"{% endif %} >
-              <a href="{% url 'dashboard' %}">Dashboard</a>
+            <span {% if section == "dashboard" %}{% endif %} >
+              <a class = "home-text01 hide_on_small" href="{% url 'dashboard' %}">Dashboard</a>
             </span>
             <span {% if section == 'flashcard' %}class="selected"{% endif %} class="home-text01 hide_on_small">
               Features
@@ -112,7 +88,7 @@
       {% if request.user.is_authenticated %}
       <div class="home-buttons home-text01">
         <form action="{% url 'logout' %}" method="get">
-          <button class="button">Logout</button>
+          <button class="logout_button button">Logout</button>
         </form> 
       </div>
       {% endif %}
@@ -141,10 +117,30 @@
     {% block content %}
     {% endblock %}
   </div>
-
-  
-  
-
-
 </body>
 </html>
+{% comment %} <div id="header">
+    <span class="logo">Anglais</span>
+    {% if request.user.is_authenticated %}
+      <ul class="menu">
+        <li {% if section == "dashboard" %}class="selected"{% endif %}>
+          <a href="{% url 'dashboard' %}">My dashboard</a>
+        </li>
+        <li {% if section == 'flashcard' %}class="selected"{% endif %}>
+          <a href="#">Images</a>
+        </li>
+        <li {% if section == "english master mind" %}class="selected"{% endif %}>
+          <a href="#">People</a>
+        </li>
+      </ul>
+    {% endif %}
+    <span class="user">
+      {% if request.user.is_authenticated %}
+        Hello {{ request.user.first_name|default:request.user.username }},
+        <a href="{% url 'logout' %}">Logout</a>
+        <a href="{% url 'edit' %}">Edit your accout</a>
+      {% else %}
+        <a href="{% url 'login' %}">Log-in</a>
+      {% endif %}
+    </span>
+  </div> {% endcomment %}
