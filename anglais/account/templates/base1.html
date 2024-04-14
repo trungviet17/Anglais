@@ -49,7 +49,20 @@
   
   <div class="home-container">
     <header data-thq="thq-navbar" class="home-navbar-interactive">
-      <img alt="logo" src="{% static 'img/anglais-1500h.png' %}" class="home-image logo"/>
+      {% if request.user.is_authenticated %}
+        <form action="{% url 'dashboard' %}" method="get">
+          <button type="submit">
+              <img src="{% static 'img/anglais-1500h.png' %}" alt="Button Image" class="home-image logo">
+          </button>
+        </form>
+      {% else %} 
+        <form action="{% url 'landing_page' %}" method="get">
+          <button type="submit">
+              <img src="{% static 'img/anglais-1500h.png' %}" alt="Button Image" class="home-image logo">
+          </button>
+        </form>
+      {% endif %}
+
       <div data-thq="thq-navbar-nav" class="home-desktop-menu">
         <nav class="home-links">
           <span class="home-text01 hide_on_small">About</span>
@@ -58,12 +71,17 @@
             <span {% if section == "dashboard" %}{% endif %} >
               <a class = "home-text01 hide_on_small" href="{% url 'dashboard' %}">Dashboard</a>
             </span>
-            <span {% if section == 'flashcard' %}class="selected"{% endif %} class="home-text01 hide_on_small">
-              Features
-            </span>
-            <span {% if section == "english master mind" %}class="selected"{% endif %} class="home-text02 hide_on_small">
-              Team
-            </span>
+            <span {% if section == 'flashcard' %}class="selected"{% endif %}>
+              <a class="home-text01 hide_on_small" href="{% url 'flashcard:flash_card_home_view' %}">Flashcard</a>
+            </span> 
+              
+            
+            <span {% if section == "english master mind" %}class="selected"{% endif %} >
+
+              <a class="home-text02 hide_on_small" href="{% url 'english_mastermind:index' %}">Mastermind</a>
+            </span> 
+              
+            
             <span class="home-text03 hide_on_small">Blog</span>
             {% comment %} <span class="home-text03">Hello {{ request.user.first_name|default:request.user.username }},</span> {% endcomment %}
           {% endif %}

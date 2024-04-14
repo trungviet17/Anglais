@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'PerfectlyVintages';
-  src: url('./public/font/perfectlyvintagesfontbykeithzo.otf') format('opentype');
+  src: url('../../font/perfectlyvintagesfontbykeithzo.otf') format('opentype');
 }
 .feature-card2-feature-card {
   width: 100%;

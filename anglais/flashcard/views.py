@@ -102,6 +102,14 @@ class StudySetListView(ListView):
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
     
+    def get_queryset(self):
+        # Lấy tất cả các studyset có author bằng với request.user
+        return StudySet.objects.filter(user=self.request.user)
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['user'] = self.request.user
+        return context
 
 @login_required
 def delete_word(request, form_id, word_id):
@@ -136,7 +144,11 @@ def new_studyset(request):
     if request.method == 'POST':
             form = SetForm(request.POST)
             if form.is_valid():
-                studyset = form.save()
+                studyset = form.save(commit=False)
+
+                studyset.user = request.user 
+
+                studyset.save()
                 if 'save' in request.POST:
                     # Nếu người dùng nhấn nút "Save"
                     return redirect('flashcard:studysets')
@@ -209,3 +221,9 @@ def edit_word(request, form_id, word_id):
             return redirect('flashcard:update_studyset', id=form_id)
 
     return render(request, 'flashcard/edit_word.html', {'form': form, 'word': word, 'form_id': form_id})
+
+
+
+@login_required 
+def studysets(request): 
+    pass

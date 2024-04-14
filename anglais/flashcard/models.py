@@ -25,7 +25,7 @@ class StudySet(models.Model):
     title = models.CharField(max_length = 200)
     description = models.TextField()
     # folder = models.ForeignKey(Folders, on_delete=models.CASCADE)
-    # author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     learning_time = models.IntegerField(default = 0)
 
     def __str__(self):  
