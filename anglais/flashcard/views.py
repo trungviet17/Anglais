@@ -92,24 +92,7 @@ def flash_card_home_view(request):
 #         }
 
 
-class StudySetListView(ListView): 
-    model = StudySet
-    template_name = 'flashcard/studysets.html'
-    context_object_name = 'studysets'
 
-    
-    @login_required
-    def dispatch(self, request, *args, **kwargs):
-        return super().dispatch(request, *args, **kwargs)
-    
-    def get_queryset(self):
-        # Lấy tất cả các studyset có author bằng với request.user
-        return StudySet.objects.filter(user=self.request.user)
-    
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['user'] = self.request.user
-        return context
 
 @login_required
 def delete_word(request, form_id, word_id):
@@ -200,11 +183,15 @@ def update_studyset(request,  id):
         form = SetForm(data = request.POST, instance = studyset)
        
         if form.is_valid() :
-            form.save()
-            
-            return redirect('flashcard:studysets')
 
-    return render(request, 'flashcard/update_studyset.html', {'form': form, 'words': words})
+
+            form.save()
+            if 'save' in request.POST: 
+                return redirect('flashcard:studysets')
+            elif 'addmore' in request.POST: 
+                return redirect('flashcard:new_word', id=id)
+
+    return render(request, 'flashcard/edit_studyset.html', {'form': form, 'words': words})
 
 @login_required
 def edit_word(request, form_id, word_id): 
@@ -226,4 +213,14 @@ def edit_word(request, form_id, word_id):
 
 @login_required 
 def studysets(request): 
-    pass
+
+    studysets = StudySet.objects.filter(user= request.user)
+
+    context = {'studysets': studysets}
+
+
+    return render(request, 'flashcard/studysets.html', context)
+
+
+
+    

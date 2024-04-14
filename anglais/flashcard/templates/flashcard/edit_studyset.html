@@ -1,0 +1,48 @@
+{% extends "base1.html" %}
+{% load static %}
+
+
+
+{% block content %}
+    <h1>Edit studyset </h1>
+
+
+    <form  method = "post" id="wordform" >
+        {% csrf_token %}
+        
+
+        <!-- Studyset form name  -->
+        {{ form.title }}
+        <!-- Studyset form description  -->
+        {{ form.description }}
+          
+    
+        <div class="set_creator">
+          
+          <div id="words-container">
+            {% for word in words %}
+              <div class="word">
+                
+                {{ word.or_lan }} | {{ word.ori_word}} | {{ word.trans_word }} | {{ word.ne_lan }}
+                
+                
+                <a href="{% url 'flashcard:edit_word' form.instance.id word.id  %}">Edit</a>
+                
+
+              </div>
+            {% endfor %}
+          </div>
+
+        </div>
+    
+        
+        
+        <input type ="submit" id = "AddMore" name = "addmore" value = "Add More">
+        <input type="submit" id = "SaveButton" name="save" value="Save" >
+      
+    </form>
+
+
+
+
+{% endblock %}

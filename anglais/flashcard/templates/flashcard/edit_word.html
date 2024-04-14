@@ -8,7 +8,7 @@
 
 <form method="post">
     {% csrf_token %}
-    {{form.as_p}}
+    {{form.or_lan}} | {{form.ori_word}} | {{form.trans_word}} | {{form.ne_lan}}
     <input type="submit" value="Submit"/>
 
 </form>
