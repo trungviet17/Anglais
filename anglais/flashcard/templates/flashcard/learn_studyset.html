@@ -1,0 +1,12 @@
+{% extends "base1.html" %}
+{% load static %}
+
+{% block content %}
+    <h1>Learn {{ studysets.title  }}</h1>
+
+
+    {% for word in words %}
+
+        {{word.ori_word}} | {{word.trans_word}}
+
+{% endblock %}

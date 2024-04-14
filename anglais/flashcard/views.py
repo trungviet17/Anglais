@@ -222,5 +222,15 @@ def studysets(request):
     return render(request, 'flashcard/studysets.html', context)
 
 
+@login_required
+def learn(request, id):
+
+    studysets = get_object_or_404(StudySet, id = id)
+    words = Word.objects.all().filter(studyset = id)
+
+    return render(request, 'flashcard/learn_studyset.html', {'studysets' : studysets, 'words': words}) 
+
+
+
 
     

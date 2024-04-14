@@ -19,6 +19,7 @@ urlpatterns = [
     path('new_word/<int:id>',views.new_word, name = "new_word"),
     path('delete-studyset/<int:id>', views.delete_studyset, name= "delete_studyset"), 
     path('edit-word/<int:form_id>/<int:word_id>', views.edit_word, name="edit_word"), 
+    path('learn/<int:id>',  views.learn, name='learn'),
 
 ]
 
