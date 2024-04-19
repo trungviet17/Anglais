@@ -1,5 +1,8 @@
 final_project
-anglais\anglais\__pycache__\__init__.cpython-311.pyc
-anglais\anglais\__pycache__\settings.cpython-311.pyc
-anglais\anglais\__pycache__\urls.cpython-311.pyc
-anglais\anglais\__pycache__\wsgi.cpython-311.pyc
+anglais\english_mastermind\__pycache__
+anglais\english_mastermind\migrations
+anglais\anglais\__pycache__
+anglais\account\__pycache__
+anglais\account\migrations
+anglais\flashcard\migrations
+anglais\flashcard\__pycache__
