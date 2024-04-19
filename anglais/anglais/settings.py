@@ -84,11 +84,11 @@ WSGI_APPLICATION = 'anglais.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'btl_cnpm',
+        'NAME': 'anglais_main',
         'USER': 'root',
-        'PASSWORD' : 'min03084053', 
-        'HOST': 'localhost',
-        'PORT': '3006',
+        'PASSWORD' : '17012004', 
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
 }
 
