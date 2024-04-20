@@ -18,7 +18,7 @@
                         <input type="submit" value="Delete" onclick ="return confirm('Are you sure you want to delete this studyset?');">
                     
                     </form>
-                
+                    <a href="{% url 'flashcard:learn' studyset.id %}">Learn</a>
                 </li>
                 
             {% endfor %}

@@ -228,7 +228,23 @@ def learn(request, id):
     studysets = get_object_or_404(StudySet, id = id)
     words = Word.objects.all().filter(studyset = id)
 
-    return render(request, 'flashcard/learn_studyset.html', {'studysets' : studysets, 'words': words}) 
+    current_indx = int(request.GET.get("index", 0))
+
+    next_indx = (current_indx + 1) % len(words)
+
+    prev_indx = (current_indx - 1) % len(words)
+    
+    word_num =  len(words)
+    context = {
+        "studysets" : studysets, 
+        "curr_word" : words[current_indx],
+        "next_indx" : next_indx,
+        "prev_indx" : prev_indx, 
+        "word_num" : word_num, 
+        "curr_indx" : current_indx
+    }
+
+    return render(request, 'flashcard/learn.html', context) 
 
 
 
