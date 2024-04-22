@@ -44,8 +44,8 @@
   - Cung cấp phản hồi và giải đáp
   - Hỗ trợ việc viết tiếng anh và sửa lỗi từ vựng , ngữ pháp
 * Học tiếng anh thông qua giao tiếp và hình ảnh
-  - Đưa ra ví dụ minh họa cho từ vựng
-  - Nhận diện tiếng nói của người dùng
+  - Đưa ra ảnh ví dụ minh họa cho từ vựng
+  - Sửa lỗi và đánh giá phát âm của người dùng
 
 ## How To Use
 
