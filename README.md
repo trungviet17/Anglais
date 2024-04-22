@@ -40,10 +40,12 @@
 
 * Học từ vựng thông qua flashcard : 
   - Bạn có thể thêm tùy ý từ vựng vào studyset với đa dạng lựa chọn ngôn ngữ 
-* 
-- 
-* 
-- 
+* Trợ lý ảo hỗ trợ học tiếng anh
+  - Cung cấp phản hồi và giải đáp
+  - Hỗ trợ việc viết tiếng anh và sửa lỗi từ vựng , ngữ pháp
+* Học tiếng anh thông qua giao tiếp và hình ảnh
+  - Đưa ra ảnh ví dụ minh họa cho từ vựng
+  - Sửa lỗi và đánh giá phát âm của người dùng
 
 ## How To Use
 
@@ -54,7 +56,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 $ git clone https://github.com/trungviet17/Anglais
 
 # Go into the repository
-$ cd anglias
+$ cd anglais
 
 # Install dependencies
 $ python -m venv final_project 
@@ -73,15 +75,13 @@ $ pip install -r requirements.txt
 
 You can [download](https://github.com/amitmerchant1990/electron-markdownify/releases/tag/v1.2.0) the latest installable version of Markdownify for Windows, macOS and Linux.
 
-## Emailware
-<!-- 
-Markdownify is an [emailware](https://en.wiktionary.org/wiki/emailware). Meaning, if you liked using this app or it has helped you in any way, I'd like you send me an email at <bullredeyes@gmail.com> about anything you'd want to say about this software. I'd really appreciate it! -->
-
 ## Credits
 
 This software uses the following open source packages:
 
 - [Electron](http://electron.atom.io/)
+- [Django](https://www.djangoproject.com/)
+- [Bootstrap](https://getbootstrap.com/)
 - [Node.js](https://nodejs.org/)
 - [Marked - a markdown parser](https://github.com/chjj/marked)
 - [showdown](http://showdownjs.github.io/showdown/)
@@ -115,6 +115,5 @@ MIT
 ---
 
 
-> GitHub [@amitmerchant1990](https://github.com/amitmerchant1990) &nbsp;&middot;&nbsp;
-> Facebook [@amit_merchant](https://twitter.com/amit_merchant)
+> GitHub [@anglais](https://github.com/trungviet17/Anglais) &nbsp;&middot;&nbsp;
 
