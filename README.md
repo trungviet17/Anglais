@@ -56,7 +56,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 $ git clone https://github.com/trungviet17/Anglais
 
 # Go into the repository
-$ cd anglias
+$ cd anglais
 
 # Install dependencies
 $ python -m venv final_project 
