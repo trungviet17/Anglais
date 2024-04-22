@@ -84,6 +84,8 @@ Markdownify is an [emailware](https://en.wiktionary.org/wiki/emailware). Meaning
 This software uses the following open source packages:
 
 - [Electron](http://electron.atom.io/)
+- [Django](https://www.djangoproject.com/)
+- [Bootstrap](https://getbootstrap.com/)
 - [Node.js](https://nodejs.org/)
 - [Marked - a markdown parser](https://github.com/chjj/marked)
 - [showdown](http://showdownjs.github.io/showdown/)
