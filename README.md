@@ -49,7 +49,7 @@
 
 ## How To Use
 
-To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+To clone and run this application, you'll need [Git](https://git-scm.com) and  installed on your computer. From your command line:
 
 ```bash
 # Clone this repository
@@ -73,13 +73,13 @@ $ pip install -r requirements.txt
 
 ## Download
 
-You can [download](https://github.com/amitmerchant1990/electron-markdownify/releases/tag/v1.2.0) the latest installable version of Markdownify for Windows, macOS and Linux.
+<!-- You can [download](https://github.com/amitmerchant1990/electron-markdownify/releases/tag/v1.2.0) the latest installable version of Markdownify for Windows, macOS and Linux. -->
 
 ## Credits
 
 This software uses the following open source packages:
 
-- [Electron](http://electron.atom.io/)
+
 - [Django](https://www.djangoproject.com/)
 - [Bootstrap](https://getbootstrap.com/)
 - [OpenAI](https://openai.com/blog/openai-api)
