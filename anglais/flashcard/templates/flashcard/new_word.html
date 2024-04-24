@@ -1,99 +1,107 @@
-{% extends 'base1.html' %}
+{% extends "base1.html" %}
 {% load static %}
 
+{% block title %}New Word{% endblock %}
 
-{% block content  %}
+{% block content %}
+  
+  <!DOCTYPE html>
+  <html lang="en">
+    <head></head>
+    <body>
+      <link rel="stylesheet" href="{% static 'styles\general\general.css' %}" />
+      <div class="outer_most">
+        <title>Add new Word</title>
 
-    <title>Add new Word</title>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-
-
-    <form method="post" id = "wordform" >
-
-        {% csrf_token %}
-        {{ formset.management_form }}
-
-        <div id="formset-container">
-            {% for form in formset %} 
-                <div class="formset-form">
-                    {{ form.as_p }}
-                    <button type = "button" class = "delete-form-btn" href="">Delete</button>
-
-                </div>
-            {% endfor %}
-        </div>
-
-
-        <button type = 'button' id="add-form-btn">Add another </button>
-        <input type="submit" value="Submit">
-    </form>
-
-
-    <script id="empty-form-template" type="text/template">
-
-        <div class="formset-form">
-            {{ formset.empty_form.as_p | safe }}
-            <button type="button"  class="delete-form-btn">Delete</button>
-        </div>
-
-    </script>
-
-
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     
-    <script>
-        $(document).ready(function() {
-
-            var totalForms = $('#id_{{ formset.prefix }}-TOTAL_FORMS');
-
-            var formsetContainer = $('#formset-container'); 
-
-            var emptyFormTemplate = $('#empty-form-template').text(); 
-
+    
+        <form method="post" id = "wordform" >
+    
+            {% csrf_token %}
+            {{ formset.management_form }}
+            <input type="submit" value="Submit">
+            <div id="formset-container">
+                {% for form in formset %} 
+                    <div class="formset-form">
+                        {{ form.as_p }}
+                        {% comment %} <button type = "button" class = "delete-form-btn" href="">Delete</button> {% endcomment %}
+    
+                    </div>
+                {% endfor %}
+            </div>
+    
+    
+            <button type = 'button' id="add-form-btn">Add another </button>
+            
+        </form>
+    
+    
+        <script id="empty-form-template" type="text/template">
+    
+            <div class="formset-form">
+                {{ formset.empty_form.as_p | safe }}
+                {% comment %} <button type="button"  class="delete-form-btn">Delete</button> {% endcomment %}
+            </div>
+    
+        </script>
+    
+    
         
-
-            // Hàm update lại index của form 
-            function updateElementIdx(el, prefix, index) {
-                var idRegex = new RegExp('(' + prefix + '-\\d+)'); 
-
-                var replacement = prefix + '-' + index; 
-
-                if ($(el).attr("for")) $(el).attr("for", $(el).attr("for").replace(idRegex, replacement)); 
-
-                if (el.id) el.id = el.id.replace(idRegex, replacement); 
-
-                if (el.name) el.name = el.name.replace(idRegex, replacement)
-
-            }
-
-            // Add form button 
-
-            $('#add-form-btn').click(function() {
-
-                var newForm = emptyFormTemplate.replace(/__prefix__/g, totalForms.val()); 
-                formsetContainer.append(newForm); 
-
-                totalForms.val(parseInt(totalForms.val()) + 1); 
-
-            }); 
-
-            // Delete form button 
-            formsetContainer.on('click', '.delete-form-btn', function() {
-                $(this).closest('.formset-form').remove();
-                var forms = formsetContainer.find('.formset-form'); 
-
-                $('#id_{{ formset.prefix }}-TOTAL_FORMS').val(forms.length); 
-
-                for (var i = 0, formCount = form.length; i < formCount; i ++) {
-                    updateElementIdx(forms.get(i), '{{ formset.prefix }}', i); 
+        <script>
+            $(document).ready(function() {
+    
+                var totalForms = $('#id_{{ formset.prefix }}-TOTAL_FORMS');
+    
+                var formsetContainer = $('#formset-container'); 
+    
+                var emptyFormTemplate = $('#empty-form-template').text(); 
+    
+            
+    
+                // Hàm update lại index của form 
+                function updateElementIdx(el, prefix, index) {
+                    var idRegex = new RegExp('(' + prefix + '-\\d+)'); 
+    
+                    var replacement = prefix + '-' + index; 
+    
+                    if ($(el).attr("for")) $(el).attr("for", $(el).attr("for").replace(idRegex, replacement)); 
+    
+                    if (el.id) el.id = el.id.replace(idRegex, replacement); 
+    
+                    if (el.name) el.name = el.name.replace(idRegex, replacement)
+    
                 }
-
-
-            });
-
-        }); 
-
-    </script>
-
-
-{%  endblock %}
+    
+                // Add form button 
+    
+                $('#add-form-btn').click(function() {
+    
+                    var newForm = emptyFormTemplate.replace(/__prefix__/g, totalForms.val()); 
+                    formsetContainer.append(newForm); 
+    
+                    totalForms.val(parseInt(totalForms.val()) + 1); 
+    
+                }); 
+    
+                // Delete form button 
+                formsetContainer.on('click', '.delete-form-btn', function() {
+                    $(this).closest('.formset-form').remove();
+                    var forms = formsetContainer.find('.formset-form'); 
+    
+                    $('#id_{{ formset.prefix }}-TOTAL_FORMS').val(forms.length); 
+    
+                    for (var i = 0, formCount = form.length; i < formCount; i ++) {
+                        updateElementIdx(forms.get(i), '{{ formset.prefix }}', i); 
+                    }
+    
+    
+                });
+    
+            }); 
+    
+        </script>
+    </div>
+    </body>
+  </html>
+{% endblock %}

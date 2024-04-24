@@ -9,7 +9,8 @@
   background-color: #d3eaf1;
 }
 .blog-post-card2-blog-post-card:hover {
-  transform: scale(1.02);
+  /* transform: scale(1.02); */
+  box-shadow: 4px 4px 100px 0px rgba(0, 18, 18, 0.3);
 }
 .blog-post-card2-image {
   width: 100%;
@@ -107,6 +108,7 @@
   justify-content: space-between;
 }
 .home-text {
+  margin-top: 10px;
   color: #90553C;
   width: 1486px;
   height: 64px;
@@ -115,6 +117,7 @@
   font-family: "LekyCalgria-PersonalUse";
 }
 .home-heading {
+  margin-top: 10px;
   width: 1486px;
   height: 64px;
   font-size: 3rem;
@@ -142,11 +145,11 @@
   position: relative;
   max-width: var(--dl-size-size-maxwidth);
   align-items: center;
-  padding-top: var(--dl-space-space-threeunits);
+  /* padding-top: var(--dl-space-space-threeunits); */
   padding-left: var(--dl-space-space-threeunits);
   padding-right: var(--dl-space-space-threeunits);
   flex-direction: column;
-  padding-bottom: var(--dl-space-space-threeunits);
+  /* padding-bottom: var(--dl-space-space-threeunits); */
   justify-content: space-between;
 }
 .home-text06 {
@@ -163,6 +166,7 @@
   font-family: "PerfectlyVintages";
   font-weight: 600;
   overflow-wrap: break-word;
+  pointer-events: none;
 }
 .home-text06:hover {
   transform: scale();
@@ -174,10 +178,10 @@
   position: relative;
   max-width: var(--dl-size-size-maxwidth);
   align-items: center;
-  padding-top: 0px;
+  padding-top: 20px;
   padding-left: var(--dl-space-space-threeunits);
   padding-right: var(--dl-space-space-threeunits);
-  padding-bottom: 0px;
+  padding-bottom: 20px;
   justify-content: space-between;
 }
 .home-container1 {
@@ -222,7 +226,7 @@
   }
   .home-blog {
     width: 900px;
-    height: 553px;
+    /* height: 553px; */
     position: relative;
   }
   .home-blog1 {

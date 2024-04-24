@@ -1,24 +1,19 @@
 {% extends "base1.html" %}
 {% load static %}
 
-
+{% block title %}Edit StudySet{% endblock %}
 
 {% block content %}
-    <h1>Edit studyset </h1>
-
-
-    <form  method = "post" id="wordform" >
-        {% csrf_token %}
-        
-
-        <!-- Studyset form name  -->
-        {{ form.title }}
-        <!-- Studyset form description  -->
-        {{ form.description }}
-          
-    
+  
+  <!DOCTYPE html>
+  <html lang="en">
+    <head></head>
+    <body>
+      <link rel="stylesheet" href="{% static 'styles\general\general.css' %}" />
+      <div class="outer_most">
+        <h1>Edit studyset </h1>
         <div class="set_creator">
-          
+              
           <div id="words-container">
             {% for word in words %}
               <div class="word">
@@ -34,15 +29,26 @@
           </div>
 
         </div>
+
+        <form  method = "post" id="wordform" >
+            {% csrf_token %}
+            
     
+            <!-- Studyset form name  -->
+            {{ form.title }}
+            <!-- Studyset form description  -->
+            {{ form.description }}
+              
         
+            
         
-        <input type ="submit" id = "AddMore" name = "addmore" value = "Add More">
-        <input type="submit" id = "SaveButton" name="save" value="Save" >
-      
-    </form>
-
-
-
-
+            
+            
+            <input type ="submit" id = "AddMore" name = "addmore" value = "Add More">
+            <input type="submit" id = "SaveButton" name="save" value="Save" >
+          
+        </form>
+    </div>
+    </body>
+  </html>
 {% endblock %}

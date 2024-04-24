@@ -102,21 +102,13 @@
       <h2 class="home-text01">
         <span>Translate this from &lt;{{ curr_word.or_lan }}&gt; to &lt;{{ curr_word.ne_lan }}&gt;</span><br /><br class="home-text04" /><span> </span>
       </h2>
-      <div class="home-blog">
-        <div class="blog-post-card2-blog-post-card blog-post-card2-root-class-name3">
-          <img alt="image" src="{% static 'images\external\bg5.3.png' %}" image_src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fHBvcnRyYWl0fGVufDB8fHx8MTYyNjM3ODk3Mg&amp;ixlib=rb-1.2.1&amp;h=1000" class="blog-post-card2-image" />
-        </div>
-        <span class="home-text06">
-          <span>{{ curr_word.ori_word }}</span><br />
-        </span>
-      </div>
       <div class="home-blog1">
         <div class="home-container1">
           <div class="blog-post-card1-blog-post-card blog-post-card1-root-class-name3">
             <div class="blog-post-card1-container">
               <a href="?index={{ prev_indx }}">
 
-                <img alt="profile" src="{% static 'images\external\arrow_left.png' %}" image_src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fG1hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTYyNjQzMTMwMw&amp;ixlib=rb-1.2.1&amp;h=1200" class="blog-post-card1-image"/>
+                <img alt="profile" src="{% static 'images\external\left.png' %}" image_src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fG1hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTYyNjQzMTMwMw&amp;ixlib=rb-1.2.1&amp;h=1200" class="blog-post-card1-image"/>
               </a>
             </div>
           </div>
@@ -127,13 +119,22 @@
             <div class="blog-post-card1-container">
                 <a href="?index={{ next_indx }}">
 
-                  <img alt="profile" src="{% static 'images\external\arrow_right.png' %}" image_src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fG1hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTYyNjQzMTMwMw&amp;ixlib=rb-1.2.1&amp;h=1200" class="blog-post-card1-image"/>
+                  <img alt="profile" src="{% static 'images\external\right.png' %}" image_src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fG1hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTYyNjQzMTMwMw&amp;ixlib=rb-1.2.1&amp;h=1200" class="blog-post-card1-image"/>
                 </a>
                 
             </div>
           </div>
         </div>
       </div>
+      <div class="home-blog">
+        <div class="blog-post-card2-blog-post-card blog-post-card2-root-class-name3">
+          <img alt="image" src="{% static 'images\external\bg5.3.png' %}" image_src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fHBvcnRyYWl0fGVufDB8fHx8MTYyNjM3ODk3Mg&amp;ixlib=rb-1.2.1&amp;h=1000" class="blog-post-card2-image" />
+        </div>
+        <span class="home-text06">
+          <span>{{ curr_word.ori_word }}</span><br />
+        </span>
+      </div>
+      
       <img src="{% static 'images\external\bg7.png' %}" alt="image" class="home-image1" />
     </div>
   </div>

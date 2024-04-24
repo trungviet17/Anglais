@@ -1,36 +1,41 @@
 {% extends "base1.html" %}
+{% load static %}
 
-{% block title %} Flash Card {% endblock %}
+{% block title %}New StudySet{% endblock %}
 
+{% block content %}
+  
+  <!DOCTYPE html>
+  <html lang="en">
+    <head></head>
+    <body>
+      <link rel="stylesheet" href="{% static 'styles\general\general.css' %}" />
+      <div class="outer_most">
+        <h1>My Workspace</h1>
 
-{% block content  %}
-    <h1>My Workspace</h1>
-
-    <h2>
-
-        <a href ="{% url 'flashcard:new_studyset' %}"> 
-            Create new Studyset
-        </a>
-    </h2>
-
-
-    <h2>
-
-        <a href ="{% url 'flashcard:studysets' %}">
-            See your studyset 
-        </a>
-
-    </h2>
-
-        <a >
-
-
-
-
-        </a>
-
-
-
-
-
+        <h2>
+    
+            <a href ="{% url 'flashcard:new_studyset' %}"> 
+                Create new Studyset
+            </a>
+        </h2>
+    
+    
+        <h2>
+    
+            <a href ="{% url 'flashcard:studysets' %}">
+                See your studyset 
+            </a>
+    
+        </h2>
+    
+            <a >
+    
+    
+    
+    
+            </a>
+    </div>
+    </body>
+  </html>
 {% endblock %}
