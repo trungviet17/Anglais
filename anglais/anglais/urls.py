@@ -23,6 +23,7 @@ urlpatterns = [
     path('flashcard/', include('flashcard.urls')), #include all urls of flashcards app
     path('', include('account.urls')),
     path('english_mastermind/', include('english_mastermind.urls')),
+    path('social-auth', include('social_django.urls', namespace='social')), 
 ]
 
 
