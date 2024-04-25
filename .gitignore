@@ -4,3 +4,4 @@ __pycache__/
 anglais/anglais/__pycache__/settings.cpython-311.pyc
 anglais/anglais/__pycache__/urls.cpython-311.pyc
 anglais/anglais/settings.py
+anglais/flashcard/migrations/0011_alter_folders_publish.py
