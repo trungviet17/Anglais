@@ -271,13 +271,17 @@
   background-color: #ffffff;
 }
 .home-text08 {
-  color: rgb(0, 189, 177);
-  /* color: linear-gradient(0deg, rgba(0,255,236,1) 0%, rgba(0,0,0,1) 100%); */
-  /* color: #3600ff; */
+  background: linear-gradient(0deg, rgba(0,255,236,1) 0%, rgba(0,0,0,1) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
   font-size: 3rem;
   text-align: center;
   font-family: "PerfectlyVintages";
 }
+
+
 .home-container1 {
   display: flex;
   align-items: center;
@@ -341,7 +345,11 @@
   justify-content: flex-start;
 }
 .home-text28 {
-  color: #6c44ff;
+  background: linear-gradient(0deg, rgb(175, 255, 250) 0%, rgba(0,0,0,1) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
   font-size: 3rem;
   max-width: 450px;
 }
@@ -366,7 +374,11 @@
   flex-direction: column;
 }
 .home-text36 {
-  color: #7053fd;
+  background: linear-gradient(0deg, rgb(175, 255, 250) 0%, rgba(0,0,0,1) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
   font-size: 3rem;
   margin-bottom: var(--dl-space-space-threeunits);
 }
@@ -461,7 +473,7 @@
 }
 @media(max-width: 1600px) {
   .home-text08 {
-    color: #3600ff;
+    color: rgb(48, 215, 168);
   }
   .home-text11 {
     width: 736px;
@@ -665,7 +677,7 @@
   }
   .home-text08 {
     width: 483px;
-    height: 86px;
+    /* height: 86px; */
     font-size: 3rem;
     font-weight: 700;
   }
