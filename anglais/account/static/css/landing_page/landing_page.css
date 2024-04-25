@@ -271,7 +271,9 @@
   background-color: #ffffff;
 }
 .home-text08 {
-  color: #3600ff;
+  color: rgb(0, 189, 177);
+  /* color: linear-gradient(0deg, rgba(0,255,236,1) 0%, rgba(0,0,0,1) 100%); */
+  /* color: #3600ff; */
   font-size: 3rem;
   text-align: center;
   font-family: "PerfectlyVintages";

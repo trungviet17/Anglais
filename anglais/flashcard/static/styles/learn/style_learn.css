@@ -3,14 +3,14 @@
   font-style: normal;
   font-format: opentype;
   font-weight: 600;
-  src: url("public/fonts/perfectlyvintagesfontbykeithzo.otf") ;
+  src: url("../../font/PerfectlyVintagesFontbyKeithzo.otf") ;
 }
 @font-face {
   font-family: "LekyCalgria-PersonalUse";
   font-style: normal;
   font-format: opentype;
   font-weight: 600;
-  src: url("public/fonts/lekycalgria.otf") ;
+  src: url("../../font/LekyCalgria.otf") ;
 }
 :root {
   --dl-color-gray-500: #595959;

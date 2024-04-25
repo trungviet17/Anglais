@@ -1,29 +1,40 @@
-<!-- List of StudySet  -->
-{% extends 'base1.html' %}
+{% extends "base1.html" %}
+{% load static %}
 
+{% block title %}New StudySet{% endblock %}
 
 {% block content %}
-    <div class="card">
-        <div class ="card-header card-header-secondary">
-            <h1>StudySet</h1>
-            <a href="{% url 'flashcard:new_studyset' %}" >Create new studyset</a>
-        </div>
-        <ul>
-            {% for studyset in studysets %}
-                <li class="card-body">
-                    {{ studyset.title }} | 
-                    <a href="{% url 'flashcard:update_studyset' studyset.id %}">Edit</a> | 
-                    <form action="{% url 'flashcard:delete_studyset' studyset.id %}" method = "post" style = "display: inline;">
-                        {% csrf_token %}
-                        <input type="submit" value="Delete" onclick ="return confirm('Are you sure you want to delete this studyset?');">
+  
+  <!DOCTYPE html>
+  <html lang="en">
+    <head></head>
+    <body>
+      <link rel="stylesheet" href="{% static 'styles\general\general.css' %}" />
+      <div class="outer_most">
+        <div class="card">
+            <div class ="card-header card-header-secondary">
+                <h1>StudySet</h1>
+                <a href="{% url 'flashcard:new_studyset' %}" >Create new studyset</a>
+            </div>
+            <ul>
+                {% for studyset in studysets %}
+                    <li class="card-body">
+                        {{ studyset.title }} | 
+                        <a href="{% url 'flashcard:update_studyset' studyset.id %}">Edit</a> | 
+                        <form action="{% url 'flashcard:delete_studyset' studyset.id %}" method = "post" style = "display: inline;">
+                            {% csrf_token %}
+                            <input type="submit" value="Delete" onclick ="return confirm('Are you sure you want to delete this studyset?');">
+                        
+                        </form>
+                        <a href="{% url 'flashcard:learn' studyset.id %}">Learn</a>
+                    </li>
                     
-                    </form>
-                    <a href="{% url 'flashcard:learn' studyset.id %}">Learn</a>
-                </li>
-                
-            {% endfor %}
-
-        </ul>
-
+                {% endfor %}
+    
+            </ul>
+    
+        </div>
     </div>
+    </body>
+  </html>
 {% endblock %}

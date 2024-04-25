@@ -1,4 +1,6 @@
-final_project
+tonlien
 __pycache__/
-anglais/cert.crt 
-anglais/cert.key
+.gitignore
+anglais/anglais/__pycache__/settings.cpython-311.pyc
+anglais/anglais/__pycache__/urls.cpython-311.pyc
+anglais/anglais/settings.py
