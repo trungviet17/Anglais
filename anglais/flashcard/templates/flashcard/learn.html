@@ -126,7 +126,9 @@
           </div>
         </div>
       </div>
-      <div class="home-blog">
+
+
+      {% comment %} <div class="home-blog">
         <div class="blog-post-card2-blog-post-card blog-post-card2-root-class-name3">
           <img alt="image" src="{% static 'images\external\bg5.3.png' %}" image_src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fHBvcnRyYWl0fGVufDB8fHx8MTYyNjM3ODk3Mg&amp;ixlib=rb-1.2.1&amp;h=1000" class="blog-post-card2-image" />
         </div>
@@ -134,9 +136,63 @@
           <span>{{ curr_word.ori_word }}</span><br />
         </span>
       </div>
+
+
+      <div class="home-blog">
+        <div class="blog-post-card2-blog-post-card blog-post-card2-root-class-name3">
+          <img alt="image" src="{% static 'images\external\bg5.3.png' %}" image_src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fHBvcnRyYWl0fGVufDB8fHx8MTYyNjM3ODk3Mg&amp;ixlib=rb-1.2.1&amp;h=1000" class="blog-post-card2-image" />
+        </div>
+        <span class="home-text06">
+          <span>{{ curr_word.trans_word }}</span><br />
+        </span>
+      </div> {% endcomment %}
       
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="home-blog upper">
+              <div class="blog-post-card2-blog-post-card blog-post-card2-root-class-name3">
+                <img alt="image" src="{% static 'images\external\bg5.3.png' %}" image_src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fHBvcnRyYWl0fGVufDB8fHx8MTYyNjM3ODk3Mg&amp;ixlib=rb-1.2.1&amp;h=1000" class="blog-post-card2-image" />
+              </div>
+              <span class="home-text06">
+                <span>{{ curr_word.ori_word }}</span><br />
+              </span>
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <div class="home-blog lower">
+              <div class="blog-post-card2-blog-post-card blog-post-card2-root-class-name3">
+                <img alt="image" src="{% static 'images\external\bg5.3.png' %}" image_src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fHBvcnRyYWl0fGVufDB8fHx8MTYyNjM3ODk3Mg&amp;ixlib=rb-1.2.1&amp;h=1000" class="blog-post-card2-image" />
+              </div>
+              <span class="home-text06">
+                <span>{{ curr_word.trans_word }}</span><br />
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
       <img src="{% static 'images\external\bg7.png' %}" alt="image" class="home-image1" />
     </div>
   </div>
+  <script>
+    function clicked(e) {
+      console.log(e.target)
+      if(e.target.matches('.blog-post-card2-image')) {
+        console.log('yay')
+        document.querySelector('.flip-card').classList.toggle('is-flipped');
+        document.querySelector('.home-blog.upper').className = 'temp';
+        document.querySelector('.home-blog.lower').className = 'home-blog upper';
+        document.querySelector('.temp').className = 'home-blog lower';
+        document.querySelector('.home-blog.lower').removeEventListener('click', clicked);
+        document.querySelector('.home-blog.upper').addEventListener('click', clicked);
+      }
+    }
+    document.querySelector('.home-blog.upper').addEventListener('click', clicked);
+    
+    
+  </script>
 </body>
 </html>
