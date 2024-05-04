@@ -24,15 +24,22 @@
             <div id="formset-container">
                 {% for form in formset %} 
                     <div class="formset-form">
-                        {{ form.as_p }}
-                        {% comment %} <button type = "button" class = "delete-form-btn" href="">Delete</button> {% endcomment %}
+                        <div class="language">
+                            <p>Original Language: {{form.or_lan}}</p>
+                            <p>Original Word: </p> {{form.ori_word}}
+                        </div>
+                        <div class="translation">
+                            <p>New Language: {{form.ne_lan}}</p>
+                            <p>Translated Word: </p> {{form.trans_word}}
+                        </div>
+                        <button type = "button" class = "delete-form-btn" href="">Delete</button> 
     
                     </div>
                 {% endfor %}
             </div>
     
     
-            <button type = 'button' id="add-form-btn">Add another </button>
+            <button type = 'button' id="add-form-btn"> Add another </button>
             
         </form>
     
@@ -40,8 +47,16 @@
         <script id="empty-form-template" type="text/template">
     
             <div class="formset-form">
-                {{ formset.empty_form.as_p | safe }}
-                {% comment %} <button type="button"  class="delete-form-btn">Delete</button> {% endcomment %}
+                
+                <div class="language">
+                    <p>Original Language: {{formset.empty_form.or_lan}}</p>
+                    <p>Original Word: </p> {{formset.empty_form.ori_word}}
+                </div>
+                <div class="translation">
+                    <p>New Language: {{formset.empty_form.ne_lan}}</p>
+                    <p>Translated Word: </p> {{formset.empty_form.trans_word}}
+                </div>
+                <button type="button"  class="delete-form-btn">Delete</button> 
             </div>
     
         </script>
