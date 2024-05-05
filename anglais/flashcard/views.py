@@ -159,6 +159,9 @@ def learn(request, id):
     studysets = get_object_or_404(StudySet, id = id)
     words = Word.objects.all().filter(studyset = id)
 
+    if len(words) == 0  : 
+        return render(request, 'flashcard/error.html', {'studysets' : studysets})
+
     current_indx = int(request.GET.get("index", 0))
 
     next_indx = (current_indx + 1) % len(words)
