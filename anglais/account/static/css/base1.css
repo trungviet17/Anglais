@@ -11,7 +11,7 @@ p {
 }
 
 a {
-    color:#2f2fff;
+    color:#000000;
     text-decoration:none;
 }
 
@@ -116,7 +116,7 @@ input, textarea {
 }
 input[type=submit], a.button {
     font-weight:bold;
-    background:#5555ff;
+    background:#000000;
     color:#fff;
     padding:10px 20px;
     font-size:14px;

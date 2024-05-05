@@ -1,0 +1,54 @@
+@font-face {
+    font-family: "PerfectlyVintages";
+    font-style: normal;
+    font-format: opentype;
+    font-weight: 400;
+    src: url("../../font/perfectlyvintagesfontbykeithzo.otf") ;
+}
+@font-face {
+    font-family: "LekyCalgria-PersonalUse";
+    font-style: normal;
+    font-format: opentype;
+    font-weight: 400;
+    src: url("../../font/lekycalgria.otf") ;
+}
+
+.form-style {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.form-style input, .form-style select, .form-style textarea {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+}
+
+.btn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.header {
+    font-family: "LekyCalgria-PersonalUse";
+    font-weight: bold;
+}
