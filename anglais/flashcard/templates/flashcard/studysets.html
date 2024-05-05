@@ -1,7 +1,7 @@
 {% extends "base1.html" %}
 {% load static %}
 
-{% block title %}New StudySet{% endblock %}
+{% block title %}Workspace{% endblock %}
 
 {% block content %}
   
@@ -10,30 +10,39 @@
     <head></head>
     <body>
       <link rel="stylesheet" href="{% static 'styles\general\general.css' %}" />
+      <link rel="stylesheet" href="{% static 'styles\workspace\workspace.css' %}" />
       <div class="outer_most">
-        <div class="card">
-            <div class ="card-header card-header-secondary">
-                <h1>My Workspace</h1>
-                <a href="{% url 'flashcard:new_studyset' %}" >Create new studyset</a>
-            </div>
-            <ul>
-                {% for studyset in studysets %}
-                    <li class="card-body">
-                        {{ studyset.title }} | 
-                        <a href="{% url 'flashcard:update_studyset' studyset.id %}">Edit</a> | 
-                        <form action="{% url 'flashcard:delete_studyset' studyset.id %}" method = "post" style = "display: inline;">
-                            {% csrf_token %}
-                            <input type="submit" value="Delete" onclick ="return confirm('Are you sure you want to delete this studyset?');">
-                        
-                        </form>
-                        <a href="{% url 'flashcard:learn' studyset.id %}">Learn</a>
-                    </li>
-                    
-                {% endfor %}
-    
-            </ul>
-    
+        <div class="header_card">
+            {% comment %} <div class ="card-header card-header-secondary"> {% endcomment %}
+                <h1 class="header">My Workspace</h1>
+                <a href="{% url 'flashcard:new_studyset' %}" class="btn">Create new studyset</a>
+            {% comment %} </div> {% endcomment %}
         </div>
+
+            {% comment %} <ul> {% endcomment %}
+            {% for studyset in studysets %}
+                <div class="studyset">
+                    <div class="card">
+                        <div class="card-body">
+                            <h1 class="card-title">{{ studyset.title }}</h1>
+                            <div class="buttons">
+                                <div class="not_delete">
+                                <a href="{% url 'flashcard:update_studyset' studyset.id %}" class="btn btn-primary">Edit</a>
+                                <a href="{% url 'flashcard:learn' studyset.id %}" class="btn btn-success">Learn</a>
+                                </div>
+                                <form action="{% url 'flashcard:delete_studyset' studyset.id %}" method="post" style="display: inline-block;">
+                                    {% csrf_token %}
+                                    <input type="submit" value="Delete" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this studyset?');">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+    
+            {% comment %} </ul> {% endcomment %}
+    
     </div>
     </body>
   </html>

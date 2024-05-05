@@ -10,53 +10,68 @@
     <head></head>
     <body>
       <link rel="stylesheet" href="{% static 'styles\general\general.css' %}" />
+      <link rel="stylesheet" href="{% static 'styles\new_word\new_word.css' %}" />
       <div class="outer_most">
         <title>Add new Word</title>
 
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     
     
-        <form method="post" id = "wordform" >
-    
+        <form method="post" id="wordform" class="form-style">
+            
             {% csrf_token %}
             {{ formset.management_form }}
-            <input type="submit" value="Submit">
+            
+        
             <div id="formset-container">
                 {% for form in formset %} 
+                <div class="card">
                     <div class="formset-form">
-                        <div class="language">
-                            <p>Original Language: {{form.or_lan}}</p>
-                            <p>Original Word: </p> {{form.ori_word}}
+                        <div class="language box">
+                            <p>Original Language: {{formset.empty_form.or_lan}}</p>
+                            <p>Original Word: </p> {{formset.empty_form.ori_word}}
                         </div>
-                        <div class="translation">
-                            <p>New Language: {{form.ne_lan}}</p>
-                            <p>Translated Word: </p> {{form.trans_word}}
+                        <div class="translation box">
+                            <p>New Language: {{formset.empty_form.ne_lan}}</p>
+                            <p>Translated Word: </p> {{formset.empty_form.trans_word}}
                         </div>
-                        <button type = "button" class = "delete-form-btn" href="">Delete</button> 
-    
+                        
+                            
                     </div>
+                    <h1></h1>
+                    <div class="del">
+                        <button type="button" class="delete-form-btn btn btn-danger">Delete</button> 
+                    </div>
+                </div>
                 {% endfor %}
             </div>
-    
-    
-            <button type = 'button' id="add-form-btn"> Add another </button>
-            
+            <button type='button' id="add-form-btn" class="btn btn-success bottom_button"> Add another </button>
+            <input type="submit" value="Submit" class="btn btn-primary bottom_button">
         </form>
+        {% comment %} <button type='button' id="add-form-btn" class="btn btn-success bottom_button"> Add another </button>
+        <input type="submit" value="Submit" class="btn btn-primary bottom_button"> {% endcomment %}
     
-    
+
+
         <script id="empty-form-template" type="text/template">
     
-            <div class="formset-form">
-                
-                <div class="language">
-                    <p>Original Language: {{formset.empty_form.or_lan}}</p>
-                    <p>Original Word: </p> {{formset.empty_form.ori_word}}
+            <div class="card">
+                <div class="formset-form">
+                    <div class="language box">
+                        <p>Original Language: {{formset.empty_form.or_lan}}</p>
+                        <p>Original Word: </p> {{formset.empty_form.ori_word}}
+                    </div>
+                    <div class="translation box">
+                        <p>New Language: {{formset.empty_form.ne_lan}}</p>
+                        <p>Translated Word: </p> {{formset.empty_form.trans_word}}
+                    </div>
+                    
+                        
                 </div>
-                <div class="translation">
-                    <p>New Language: {{formset.empty_form.ne_lan}}</p>
-                    <p>Translated Word: </p> {{formset.empty_form.trans_word}}
+                <h1></h1>
+                <div class="del">
+                    <button type="button" class="delete-form-btn btn btn-danger">Delete</button> 
                 </div>
-                <button type="button"  class="delete-form-btn">Delete</button> 
             </div>
     
         </script>
@@ -101,12 +116,12 @@
     
                 // Delete form button 
                 formsetContainer.on('click', '.delete-form-btn', function() {
-                    $(this).closest('.formset-form').remove();
-                    var forms = formsetContainer.find('.formset-form'); 
+                    $(this).closest('.card').remove();
+                    var forms = formsetContainer.find('.card'); 
     
                     $('#id_{{ formset.prefix }}-TOTAL_FORMS').val(forms.length); 
     
-                    for (var i = 0, formCount = form.length; i < formCount; i ++) {
+                    for (var i = 0, formCount = forms.length; i < formCount; i ++) {
                         updateElementIdx(forms.get(i), '{{ formset.prefix }}', i); 
                     }
     
