@@ -1,0 +1,15 @@
+{% extends "base1.html" %}
+{% load static %}
+
+{% block content %}
+
+    <h1> Opps! </h1>
+
+    <p> You don't have any word in your studyset </p>
+    <a href="{% url  'flashcard:new_word' studysets.id %}"> Add another </a>
+    
+
+
+{% endblock %}
+
+

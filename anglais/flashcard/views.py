@@ -1,4 +1,6 @@
 
+from typing import Any
+from django.forms.forms import BaseForm
 from django.shortcuts import render, redirect, get_object_or_404,  HttpResponseRedirect
 from .form import WordFormset, SetForm, WordForm
 from django.views.generic import ListView 
@@ -6,9 +8,12 @@ from django.views.generic import ListView
 from .models import Word, StudySet
 from django.contrib import  messages
 
-from django.urls import reverse
+from django.urls import reverse,  reverse_lazy
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
+from django.views.generic.detail import SingleObjectMixin
+from  django.views.generic import FormView, UpdateView
+from django.db import transaction
 
 # Create your views here.
 
@@ -20,79 +25,6 @@ def home_view(request):
 @login_required
 def flash_card_home_view(request): 
     return render(request, 'flashcard/home_view.html')
-
-
-
-# class StudySetInline(): 
-
-#     form_class = SetForm
-#     model = StudySet
-#     template_name = "flashcard/studyset_form.html"
-
-#     def form_valid(self, form): 
-#         named_formsets = self.get_named_formsets()
-
-#         if not all((x.is_valid() for x in named_formsets.values())): 
-#             return self.render_to_response(self.get_context_data(form=form))
-        
-#         self.object = form.save()
-
-#         for name, formset in named_formsets.items(): 
-#             formset_save_func = getattr(self, 'formset_{0}_valid'.format(name), None)
-
-#             if formset_save_func is not None: 
-#                 formset_save_func(formset)
-#             else: 
-#                 formset.save()
-
-#         return redirect('flashcard:list_studyset')
-    
-#     def formset_word_valid(self, formset): 
-
-#         words = formset.save(commit  = False)
-
-#         for obj in formset.deleted_objects: 
-#             obj.delete()
-        
-#         for word in words: 
-#             word.studyset = self.object
-#             word.save()
-
-
-# class StudySetCreate(StudySetInline, CreateView): 
-
-#     def get_context_data(self, **kwargs):
-#         ctd =  super(StudySetCreate, self).get_context_data(**kwargs)
-#         ctd['named_formsets'] = self.get_named_formsets()
-#         return ctd 
-
-#     def get_named_formsets(self): 
-#         if self.request.method == "GET":
-#             return {
-#                 'words': WordFormset(prefix = "words"),
-#             }
-        
-#         else : 
-#             return {
-#                 'words': WordFormset(self.request.POST or None, self.request.FILES or None, prefix = "words"), 
-#             }
-
-# class StudySetUpdate(StudySetInline, UpdateView):
-
-#     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
-#         ctd =  super(StudySetUpdate, self).get_context_data(**kwargs)
-#         ctd['named_formsets'] = self.get_named_formsets()
-
-#         return ctd
-
-#     def get_named_formsets(self): 
-
-#         return {
-#             'words' : WordFormset(self.request.POST or None, self.request.FILES or None, instance = self.object, prefix = "words")
-#         }
-
-
-
 
 @login_required
 def delete_word(request, form_id, word_id):
@@ -115,7 +47,7 @@ def delete_studyset(request, id):
     if request.method == "POST": 
         studyset.delete()
 
-        return HttpResponseRedirect('/flashcard/studysets')
+        return HttpResponseRedirect('/flashcard/')
     
     return redirect('flashcard:studysets')
 
@@ -171,27 +103,26 @@ def new_word(request, id):
     return render(request, 'flashcard/new_word.html', context = context)
 
 
-@login_required
-def update_studyset(request,  id): 
-    '''Hàm update thông tin của formset '''
-    studyset = get_object_or_404(StudySet, id=id)
-    form = SetForm(instance= studyset)
+# @login_required
+# def update_studyset(request,  id): 
+#     '''Hàm update thông tin của formset '''
+#     studyset = get_object_or_404(StudySet, id=id)
+#     form = SetForm(instance= studyset)
     
-    words = Word.objects.all( ).filter (studyset = id)
-
-    if request.method == "POST": 
-        form = SetForm(data = request.POST, instance = studyset)
+#     words = Word.objects.all( ).filter (studyset = id)
+#     if request.method == "POST": 
+#         form = SetForm(data = request.POST, instance = studyset)
        
-        if form.is_valid() :
+#         if form.is_valid() :
 
 
-            form.save()
-            if 'save' in request.POST: 
-                return redirect('flashcard:studysets')
-            elif 'addmore' in request.POST: 
-                return redirect('flashcard:new_word', id=id)
+#             form.save()
+#             if 'save' in request.POST: 
+#                 return redirect('flashcard:studysets')
+#             elif 'addmore' in request.POST: 
+#                 return redirect('flashcard:new_word', id=id)
 
-    return render(request, 'flashcard/edit_studyset.html', {'form': form, 'words': words})
+#     return render(request, 'flashcard/edit_studyset.html', {'form': form, 'words': words})
 
 @login_required
 def edit_word(request, form_id, word_id): 
@@ -228,6 +159,9 @@ def learn(request, id):
     studysets = get_object_or_404(StudySet, id = id)
     words = Word.objects.all().filter(studyset = id)
 
+    if len(words) == 0  : 
+        return render(request, 'flashcard/error.html', {'studysets' : studysets})
+
     current_indx = int(request.GET.get("index", 0))
 
     next_indx = (current_indx + 1) % len(words)
@@ -248,5 +182,44 @@ def learn(request, id):
 
 
 
+
+class StudySetWordUpdateView(UpdateView) : 
+
+    model = StudySet
+    form_class = SetForm
+    template_name = 'flashcard/edit_studyset.html'
+    login_required = True 
+    success_url = reverse_lazy('flashcard:studysets')
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        if self.request.POST:
+            data['word_formset'] = WordFormset(self.request.POST, instance=self.object)
+        else:
+            data['word_formset'] = WordFormset(instance=self.object)
+        return data
+
+
+    def form_valid(self, form):
+        
+        context = self.get_context_data()
+        word_formset = context['word_formset']
+        
+        with transaction.atomic():
+            if word_formset.is_valid():
+                
+                word_formset.instance = self.object
+                word_formset.save()
+            else : print(word_formset.errors)
+            self.object = form.save()
+            
+        return super().form_valid(form)
+    
+
+    def form_invalid(self, form, word_formset):
+        return self.render_to_response(
+            self.get_context_data(form=form, word_formset=word_formset)
+        )
+   
 
     

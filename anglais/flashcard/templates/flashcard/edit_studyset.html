@@ -7,48 +7,116 @@
   
   <!DOCTYPE html>
   <html lang="en">
-    <head></head>
-    <body>
-      <link rel="stylesheet" href="{% static 'styles\general\general.css' %}" />
-      <div class="outer_most">
-        <h1>Edit studyset </h1>
-        <div class="set_creator">
-              
-          <div id="words-container">
-            {% for word in words %}
-              <div class="word">
-                
-                {{ word.or_lan }} | {{ word.ori_word}} | {{ word.trans_word }} | {{ word.ne_lan }}
-                
-                
-                <a href="{% url 'flashcard:edit_word' form.instance.id word.id  %}">Edit</a>
-                
-
-              </div>
-            {% endfor %}
-          </div>
-
-        </div>
-
-        <form  method = "post" id="wordform" >
-            {% csrf_token %}
-            
     
-            <!-- Studyset form name  -->
-            {{ form.title }}
-            <!-- Studyset form description  -->
-            {{ form.description }}
-              
+    <body>
+        <link rel="stylesheet" href="{% static 'styles\general\general.css' %}" />
+        <link rel="stylesheet" href="{% static 'styles\edit_studyset\edit_studyset.css' %}" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <div class="outer_most">
+        <h1 class="header">Edit studyset </h1>
         
-            
+        <form method="post" id="wordform">
+            {% csrf_token %}
+            {{ word_formset.management_form }}
         
+          <!-- Studyset form fields -->
+            <div class="form-style">
+                <label for="id_title" class="texts">Title:</label> {{ form.title }}
+                <label for="id_description" class="texts">Description:</label> {{ form.description }}
+            </div>
+      
+
+          <!-- Word formset -->
+            <div class="form-style words">
+            <div id="words-container">
+                <form method="post">
+                    <table class="table">
+                        <tr>
+                            <th>Original Language</th>
+                            <th>Original Word</th>
+                            <th>New Language</th>
+                            <th>Translated Word</th>
+                            <th>Actions</th>
+                        </tr>
+                    
+                        {% for word_form in word_formset %}
+                        <tr class="word-form">
+                            {% for hidden in word_form.hidden_fields %}
+                            {{ hidden }}
+                            {% endfor %}
+                            <td>{{ word_form.or_lan }}</td>
+                            <td>{{ word_form.ori_word }}</td>
+                            <td>{{ word_form.ne_lan }}</td>
+                            <td>{{ word_form.trans_word }}</td>
+                            <td><button type="button" class="delete-form-btn">Delete</button></td>
+                        </tr>
+                        {% if word_form.errors %}
+                        <tr>
+                            <td colspan="5">{{ word_form.errors }}</td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                    </table>
+                    
+                </form>
+                
+            </div>
+            <button type='button' id="add-form-btn" class="delete-form-btn">Add another</button>
+                <input type="submit" value="Save">
+            </div>
             
-            
-            <input type ="submit" id = "AddMore" name = "addmore" value = "Add More">
-            <input type="submit" id = "SaveButton" name="save" value="Save" >
-          
         </form>
-    </div>
+
+
+        <script id="empty-form-template" type="text/template">
+          <tr class="word-form">
+              
+              <td>{{ word_formset.empty_form.or_lan.as_widget }}</td>
+              <td>{{ word_formset.empty_form.ori_word.as_widget }}</td>
+              <td>{{ word_formset.empty_form.ne_lan.as_widget }}</td>
+              <td>{{ word_formset.empty_form.trans_word.as_widget }}</td>
+              <td><button type="button" class="delete-form-btn">Delete</button></td>
+          </tr>
+        </script>
+        
+        <script>
+          $(document).ready(function() {
+              var formsetContainer = $('#words-container table');
+              var emptyFormTemplate = $('#empty-form-template').text();
+              var totalForms = $('#id_{{ word_formset.prefix }}-TOTAL_FORMS');
+              console.log('Total forms:', totalForms.val());
+      
+              // Hàm cập nhật index cho các phần tử form
+              function updateElementIndex(el, prefix, index) {
+                  var idRegex = new RegExp('(' + prefix + '-\\d+)');
+                  var replacement = prefix + '-' + index;
+                  if (el.id) el.id = el.id.replace(idRegex, replacement);
+                  if (el.name) el.name = el.name.replace(idRegex, replacement);
+              }
+      
+              // Thêm form mới
+              $('#add-form-btn').click(function() {
+                  
+                  var newForm = emptyFormTemplate.replace(/__prefix__/g, totalForms.val());
+                  formsetContainer.append(newForm);
+                  totalForms.val(parseInt(totalForms.val()) + 1);
+              });
+      
+              // Xóa form hiện tại
+              formsetContainer.on('click', '.delete-form-btn', function() {
+                  $(this).closest('tr').remove();
+                  var forms = formsetContainer.find('tr.word-form');
+                  totalForms.val(forms.length);
+                  forms.each(function(index, element) {
+                      updateElementIndex(element, '{{ word_formset.prefix }}', index);
+                  });
+              });
+          });
+      </script>
+      
+
+      </div>
     </body>
   </html>
 {% endblock %}
