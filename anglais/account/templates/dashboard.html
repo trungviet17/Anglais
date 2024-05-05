@@ -53,8 +53,9 @@
           ><span>Happy learning!</span></div
         ><div class="home-blog"
           ><div class="home-container1"
-            ><div
-              class="blog-post-card2-blog-post-card blog-post-card2-root-class-name3"
+            ><a href = "{% url 'flashcard:studysets' %}">
+            <div
+              class="blog-post-card2-blog-post-card blog-post-card2-root-class-name3" 
               ><img
                 alt="image"
                 src="{% static 'img\external\1.png' %}"
@@ -79,9 +80,10 @@
                 ></div
               ></div
             ></div
+            </a>
           ><div class="home-container1"
             ><div
-              class="blog-post-card2-blog-post-card blog-post-card2-root-class-name3"
+              class="blog-post-card2-blog-post-card blog-post-card2-root-class-name3" 
               ><img
                 alt="image"
                 src="{% static 'img\external\2.png' %}"
