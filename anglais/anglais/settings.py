@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     
     'flashcard.apps.FlashcardConfig',
     'english_mastermind.apps.EnglishMastermindConfig',
-    
+    'carolina.apps.CarolinaConfig',
     'bootstrap4',
     'django_htmx',
 
