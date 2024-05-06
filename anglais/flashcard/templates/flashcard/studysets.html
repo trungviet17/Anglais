@@ -29,6 +29,7 @@
                                 <div class="not_delete">
                                 <a href="{% url 'flashcard:update_studyset' studyset.id %}" class="btn btn-primary">Edit</a>
                                 <a href="{% url 'flashcard:learn' studyset.id %}" class="btn btn-success">Learn</a>
+                                
                                 </div>
                                 <form action="{% url 'flashcard:delete_studyset' studyset.id %}" method="post" style="display: inline-block;">
                                     {% csrf_token %}
@@ -42,8 +43,24 @@
 
     
             {% comment %} </ul> {% endcomment %}
+
     
     </div>
+
+    {% comment %}
+    <script type="text/javascript">
+        function learnStudySet(studyset) {
+            if (studysetsLength === 0) {
+                alert('Không có nội dung để học.');
+            } else {
+                window.location.href = `{% url 'flashcard:learn' studyset.id %}`;
+            }
+        }
+    </script>
+    {% endcomment %}
+        
+
+
     </body>
   </html>
 {% endblock %}

@@ -2,7 +2,7 @@
 {% load static %}
 
 
-
+{% block title %} Dashboard {% endblock %} 
 {% block content %}
 <!DOCTYPE html>
 <html lang="en"
@@ -53,8 +53,9 @@
           ><span></span></div
         ><div class="home-blog"
           ><div class="home-container1"
-            ><div
-              class="blog-post-card2-blog-post-card blog-post-card2-root-class-name3"
+            ><a href = "{% url 'flashcard:studysets' %}">
+            <div
+              class="blog-post-card2-blog-post-card blog-post-card2-root-class-name3" 
               ><img
                 alt="image"
                 src="{% static 'img\external\1.png' %}"
@@ -79,9 +80,10 @@
                 ></div
               ></div
             ></div
+            </a>
           ><div class="home-container1"
-            ><div
-              class="blog-post-card2-blog-post-card blog-post-card2-root-class-name3"
+            ><a href = "{% url 'carolina:index' %}"><div
+              class="blog-post-card2-blog-post-card blog-post-card2-root-class-name3" 
               ><img
                 alt="image"
                 src="{% static 'img\external\2.png' %}"
@@ -103,7 +105,7 @@
                     away!</span
                   ></span
                 ><div class="blog-post-card2-container2"
-                  ></div
+                  ><a href = "{% url 'english_mastermind:index' %}"></div
                 ></div
               ></div
             ></div
