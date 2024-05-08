@@ -71,7 +71,12 @@ $ pip install -r requirements.txt
 <!-- > If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt. -->
 
 
-## Download
+## Persona
+Hoa - sinh viên năm nhất ngành trí tuệ nhân tạo
+- Personalization : Hoa là sinh viên năm nhất trường ĐHQGHN, 18 tuổi, cô ấy mới tốt nghiệp cấp 3 và có trình độ tiếng anh ở mức trung bình.
+- Job-related : Hoa học ngành liên quan đến đọc nhiều tài liệu tiếng anh chuyên ngành, giao tiếp bằng tiếng anh nhiều.
+- Relevance : Hoa quan tâm đến ứng dụng học tiếng Anh để cải thiện kỹ năng ngôn ngữ của mình. Cô ấy muốn có thể giao tiếp một cách tự tin hơn trong công việc và học tập và tăng cơ hội thăng tiến trong sự nghiệp.
+- Education : Tốt nghiệp cấp 3 và có kiến thức cơ bản về công nghệ, thường xuyên sử dụng các ứng dụng văn phòng.
 
 <!-- You can [download](https://github.com/amitmerchant1990/electron-markdownify/releases/tag/v1.2.0) the latest installable version of Markdownify for Windows, macOS and Linux. -->
 
