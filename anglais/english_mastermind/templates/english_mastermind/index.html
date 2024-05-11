@@ -1,47 +1,62 @@
+{% load bootstrap4 %}
 {% load static %}
+{% block content %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+<link href="/static/styles/chatbot_mm.css" rel="stylesheet"/>
 
-<!doctype html>
-
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Trading Website</title>
-    <link href="/static/styles/mastermind.css" rel="stylesheet"/>
-    
-  </head>
-  <body class="background">
-
-  
-    <div class="tradingview">
-      <div id="chart"></div>
-    </div>
+<div class="chat-container">
+  <div class="card flex-grow-1">
+    <div class="card-header bg-dark text-white">Chat</div>
 
 
-    <div class="container">
-      <nav>
-        <ul>
-          <li><a href="regisn"> Resignation </a></li>
-          <li><a href="feature"> Features </a></li>
-          <li><a href="#"> About the author </a></li>
-        </ul>
-        <a href="#" class="btn">Try now &#9658;</a>
-
-      </nav>
-      <div class="content">
-        <h1> English <br><span>Mastermind</span> </h1>
-        <p>An English language learning application incorporating state-of-the-art artificial intelligence technology. </p>
-        <a href="#" class="btn">Explore More</a>
-      </div>
-      <div class="coin-list">
-        <div class="coin">
-          <div>
-            <p> Adam Bot </p>
+    <div class="card-body messages-box">
+      
+      <ul class="list-unstyled messages-list">
+        
+        <li class="message received">
+          <div class="message-text">
+            <div class="message-sender">
+              <b>Carolina</b>
+            </div>
+            <div class="message-content">
+              Hi and welcome,<br>
+              New to our app?
+              Check out the instructions:
+            </div>
           </div>
-        </div>
-   
-      </div> 
-    </div>
-  </body>
+        </li>
+      </ul>
+    <form class="prompt-form">
+      
+    </form>
+      
+      <script>
+        function hideSuggestions() {
+            event.preventDefault();
+            var suggestionButtons = document.querySelectorAll(".suggestion-prompt");
+            suggestionButtons.forEach(function(button) {
+                button.style.display = "none";
+            });
+        }
+      </script>
 
-</html>
+
+    </div>
+    <br><br>
+    <br><br>
+    <br><br>
+  </div>
+  <form class="message-form">
+    {%csrf_token%}
+    <div class="input-group">
+      <input type="text" class="form-control message-input" placeholder="Type your message...">
+      <div class="input-group-append">
+        <button type="submit" class="btn btn-primary btn-send">Send</button>
+      </div>
+    </div>
+  </form>
+</div>
+<script src="{% static 'styles/chatbot_mm.js' %}"></script>
+
+{% endblock %}
