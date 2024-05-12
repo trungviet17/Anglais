@@ -1,0 +1,44 @@
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+<link href="/static/styles/mastermind.css" rel="stylesheet"/>
+
+<button class="btn btn-primary rounded-circle circle-button">
+    <img alt="logo" src="{% static 'image\anglais.png' %}" class="home-image" />
+</button>
+<br><br>
+<br><br>
+
+<div class="card-body messages-box">
+      
+      <ul class="list-unstyled messages-list">
+        
+        <li class="message received">
+          <div class="message-text">
+            <div class="message-sender">
+              <b class = "icon"> 🐼 </b>
+              <b class = "name">Mastermind</b>
+            </div>
+            
+            <div class="message-block">
+              <div class="record">
+                <button class = "record-button"> 📢 </button>
+              </div>
+              <div class="message-content">
+                Hey there, I’m Mastermind! We’re about to have a quick chat. 
+                Just record your voice, and once we’re done, you’ll get some feedback on how you did.
+                First up, take a look at the text below. When you’re ready, just hit ‘Record’ and start reading it out loud.
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+</div>
+
+
+    
+<script src="{% static 'styles/mastermind.js' %}"></script>
+
+{% endblock %}
