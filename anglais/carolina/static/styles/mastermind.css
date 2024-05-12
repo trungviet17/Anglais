@@ -74,19 +74,38 @@ body, html {
   border: none; /* Không có viền */
   cursor: pointer; /* Con trỏ chuột khi di chuột qua */
 }
+
 .message-content{
-  background-color: #f1f0f0;
+  background-color: #f8f5f5;
   border-radius: 0px 0px 5px 5px;
   padding: 10px 10px;
 }
+
 .message-block {
-  border: 2px solid #ccc; /* Tạo viền độ dày 2px và màu xám */
+  border: 2px solid #e6e6e6; /* Tạo viền độ dày 2px và màu xám */
   border-radius: 0px 10px 10px 10px; /* Bo tròn viền */
   padding: 20px; /* Khoảng cách giữa nội dung và viền */
-  padding: 00px;
+  padding: 0px;
+}
+.prompt-clause {
+  background-color: #e9e9fa; /* Màu nền */
+  border-radius: 10px; /* Đường viền cong */
+  padding: 10px; /* Khoảng cách đệm bên trong */
+  margin-top: 15px; /* Khoảng cách phía trên */
+  border-radius: 0px 10px 10px 10px;
+  border: 2px solid #6fa9ff;
 }
 .received {
   align-self: flex-start;
   margin-left: 300px;
   margin-right: 300px;
+}
+.next-button
+{
+  margin-top: 200px;
+  margin-left: 47.5%;
+  font-size: 25px;
+  background-color: white; /* Màu nền của nút */
+  border: none; /* Không có viền */
+  cursor: pointer; /* Con trỏ chuột khi di chuột qua */
 }
