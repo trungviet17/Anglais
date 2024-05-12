@@ -79,18 +79,24 @@ promptForm.addEventListener('click', (event)=>{
             </div>
         </div>`;
     messagesList.appendChild(messageItem);
-    buttons.forEach(button => {
-        console.log(button)
+    const buttonsCopy = buttons.slice();
+    console.log(buttonsCopy)
+    buttonsCopy.forEach(button => {
         const nextSibling = button.nextElementSibling;
         if (nextSibling) {
+            console.log(1)
             promptForm.removeChild(nextSibling); // Remove line break after button
         }
         const nextNextSibling = button.nextElementSibling;
         if (nextNextSibling) {
+            console.log(2)
             promptForm.removeChild(nextNextSibling); // Remove another line break after button
         }
         promptForm.removeChild(button);
     });
+// Clear the original buttons array
+    buttons.length = 0;
+    
     while (promptForm.querySelector('br')) {
         const brElement = promptForm.querySelector('br');
         promptForm.removeChild(brElement);
@@ -127,9 +133,27 @@ promptForm.addEventListener('click', (event)=>{
 
 messageForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    buttons.forEach(button => {
+    const buttonsCopy = buttons.slice();
+
+    // Remove buttons and line breaks from promptForm
+    buttonsCopy.forEach(button => {
+        const nextSibling = button.nextElementSibling;
+        if (nextSibling) {
+            promptForm.removeChild(nextSibling); // Remove line break after button
+        }
+        const nextNextSibling = button.nextElementSibling;
+        if (nextNextSibling) {
+            promptForm.removeChild(nextNextSibling); // Remove another line break after button
+        }
         promptForm.removeChild(button);
     });
+
+    // Clear the original buttons array
+    buttons.length = 0;
+    while (promptForm.querySelector('br')) {
+        const brElement = promptForm.querySelector('br');
+        promptForm.removeChild(brElement);
+    }
     const message = messageInput.value.trim();
     if (message.length === 0) {
         return;
@@ -147,7 +171,6 @@ messageForm.addEventListener('submit', (event) => {
             </div>
         </div>`;
     messagesList.appendChild(messageItem);
-
     messageInput.value = '';
 
     fetch('', {
@@ -173,5 +196,6 @@ messageForm.addEventListener('submit', (event) => {
             </div>
         </div>`;
         messagesList.appendChild(messageItem);
+        createRecommendPrompt();
     });
 });
