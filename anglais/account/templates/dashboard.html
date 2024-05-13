@@ -1,157 +1,135 @@
 {% extends 'base1.html' %}
 {% load static %}
 
-
 {% block title %} Dashboard {% endblock %} 
+
 {% block content %}
 <!DOCTYPE html>
-<html lang="en"
-  >
-  <head
-    ><title>Stark Babyish Gazelle</title
-    ><meta property="og:title" content="Stark Babyish Gazelle" /><meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0" /><meta
-      charset="utf-8" /><meta
-      property="twitter:card"
-      content="summary_large_image" /><style data-tag="reset-style-sheet">
-      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }</style
-    ><style data-tag="default-style-sheet">
-      html {
-        font-family: Inter;
-        font-size: 16px;
-      }
+<html lang="en">
+<head>
+    
+    <meta property="og:title" content="Stark Babyish Gazelle" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
 
-      body {
-        font-weight: 400;
-        font-style:normal;
-        text-decoration: none;
-        text-transform: none;
-        letter-spacing: normal;
-        line-height: 1.15;
-        color: var(--dl-color-gray-black);
-        background-color: var(--dl-color-gray-white);
+    <!-- Reset style sheet -->
+    <style>
+        html { line-height: 1.15; }
+        body { margin: 0; }
+        * { box-sizing: border-box; border-width: 0; border-style: solid; }
+        p, li, ul, pre, div, h1, h2, h3, h4, h5, h6, figure, blockquote, figcaption { margin: 0; padding: 0; }
+        button { background-color: transparent; }
+        button, input, optgroup, select, textarea { font-family: inherit; font-size: 100%; line-height: 1.15; margin: 0; }
+        button, select { text-transform: none; }
+        button, [type="button"], [type="reset"], [type="submit"] { -webkit-appearance: button; }
+        button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner { border-style: none; padding: 0; }
+        button:-moz-focus, [type="button"]:-moz-focus, [type="reset"]:-moz-focus, [type="submit"]:-moz-focus { outline: 1px dotted ButtonText; }
+        a { color: inherit; text-decoration: inherit; }
+        input { padding: 2px 4px; }
+        img { display: block; }
+        html { scroll-behavior: smooth; }
+    </style>
 
-      }</style
-    ><link
-      rel="stylesheet"
-      href="https://unpkg.com/animate.css@4.1.1/animate.css" /><link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-      data-tag="font" /><link
-      rel="stylesheet"
-      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css" /></head
-  ><body
-    ><link rel="stylesheet" href="{% static 'css\dashboard\style_dashboard.css' %}" /><div
-      ><link href="{% static 'css\dashboard\index_dashboard.css' %}" rel="stylesheet" /><div class="sub-home-container"
-        ><div class="home-banner"
-          ><h1 class="home-text">What would you like to do today?</h1
-          ><span class="home-text1"
-            ><span
-              >Feel free to choose any of the features we have to offer!</span
-            ><br /></span
-          ><span></span></div
-        ><div class="home-blog"
-          ><div class="home-container1"
-            ><a href = "{% url 'flashcard:studysets' %}">
-            <div
-              class="blog-post-card2-blog-post-card blog-post-card2-root-class-name3" 
-              ><img
-                alt="image"
-                src="{% static 'img\external\1.png' %}"
-                image_src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fHBvcnRyYWl0fGVufDB8fHx8MTYyNjM3ODk3Mg&amp;ixlib=rb-1.2.1&amp;h=1000"
-                class="blog-post-card2-image"
-              /><div class="blog-post-card2-container"
-                ><div class="blog-post-card2-container1"
-                  ><span class="blog-post-card2-text"
-                    ><span>Feature 1</span></span
-                  ><span class="blog-post-card2-text1"
-                    ></span
-                  ></div
-                ><h1 class="blog-post-card2-text2"><a href="{% url 'flashcard:studysets' %}"><span>C.R.R</span></a></h1
-                ><span class="blog-post-card2-text3"
-                  ><span
-                    >Create your own vocabulary studysets. Review your
-                    knowledge. Rinse and repeat. This is the first and the main
-                    feature that we would like to offer.</span
-                  ></span
-                ><div class="blog-post-card2-container2"
-                  ></div
-                ></div
-              ></div
-              ></a
-            ></div
-          
-          ><div class="home-container1"
-          ><a href="{% url 'english_mastermind:index' %}"
-            ><div
-              class="blog-post-card2-blog-post-card blog-post-card2-root-class-name3" 
-              ><img
-                alt="image"
-                src="{% static 'img\external\2.png' %}"
-                image_src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fHBvcnRyYWl0fGVufDB8fHx8MTYyNjM3ODk3Mg&amp;ixlib=rb-1.2.1&amp;h=1000"
-                class="blog-post-card2-image"
-              /><div class="blog-post-card2-container"
-                ><div class="blog-post-card2-container1"
-                  ><span class="blog-post-card2-text"
-                    ><span>Feature 2</span></span
-                  ><span class="blog-post-card2-text1"
-                    ></span
-                  ></div
-                ><h1 class="blog-post-card2-text2"><span>Carolina</span></h1
-                ><span class="blog-post-card2-text3"
-                  ><span
-                    >Who is Carolina, I hear you ask? Say hello to your family
-                    friendly AI essay reviewer. If you have any paragraph that
-                    you would like to check for quality, ask her right
-                    away!</span
-                  ></span
-                ><div class="blog-post-card2-container2"
-                  ></div
-                ></div
-              ></div
-            ></div
-          ></a
-          ><a href="{% url 'carolina:index' %}"
-            ><div
-              class="blog-post-card2-blog-post-card blog-post-card2-root-class-name2"
-              ><img
-                alt="image"
-                src="{% static 'img\external\3.png' %}"
-                image_src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fHBvcnRyYWl0fGVufDB8fHx8MTYyNjM3ODk3Mg&amp;ixlib=rb-1.2.1&amp;h=1000"
-                class="blog-post-card2-image"
-              /><div class="blog-post-card2-container"
-                ><div class="blog-post-card2-container1"
-                  ><span class="blog-post-card2-text"><span>Feature 3</span></span
-                  ><span class="blog-post-card2-text1"
-                    ></span
-                  ></div
-                ><h1 class="blog-post-card2-text2"
-                  ><span>Cha biet la cai gi</span></h1
-                ><span class="blog-post-card2-text3"
-                  ><span
-                    >ai do bao vinh pham ghi noi dung vao day di, toi cung cha
-                    biet cai app 3 la cai gi nua hehe, nho ghi dai ra nhe khong la
-                    loi html</span
-                  ></span
-                ><div class="blog-post-card2-container2"
-                  ></div
-                ></div
-              ></div
-            ></div
-          ></a>
-        <div class="home-banner1">
-          <footer class="home-footer"
-            ><img
-              alt="logo"
-              src="{% static 'img\external\anglais_invert.png' %}"
-              class="home-image"
-            />
-          </footer>
+    <!-- Default style sheet -->
+    <style>
+        html {
+            font-family: Inter;
+            font-size: 16px;
+        }
+
+        body {
+            font-weight: 400;
+            font-style: normal;
+            text-decoration: none;
+            text-transform: none;
+            letter-spacing: normal;
+            line-height: 1.15;
+            color: var(--dl-color-gray-black);
+            background-color: var(--dl-color-gray-white);
+        }
+    </style>
+
+    <!-- External stylesheets -->
+    <link rel="stylesheet" href="https://unpkg.com/animate.css@4.1.1/animate.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" data-tag="font" />
+    <link rel="stylesheet" href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css" />
+</head>
+
+<body>
+    <link rel="stylesheet" href="{% static 'css\dashboard\style_dashboard.css' %}" />
+    <div>
+        <link href="{% static 'css\dashboard\index_dashboard.css' %}" rel="stylesheet" />
+        <div class="sub-home-container">
+            <!-- Home banner -->
+            <div class="home-banner">
+                <h1 class="home-text">What would you like to do today?</h1>
+                <span class="home-text1">Feel free to choose any of the features we have to offer!<br /></span>
+                <span></span>
+            </div>
+
+            <!-- Feature 1: Create vocabulary studysets -->
+            <div class="home-blog">
+                <div class="home-container1">
+                    <a href="{% url 'flashcard:studysets' %}">
+                        <div class="blog-post-card2-blog-post-card blog-post-card2-root-class-name3">
+                            <img alt="image" src="{% static 'img\external\1.png' %}" image_src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fHBvcnRyYWl0fGVufDB8fHx8MTYyNjM3ODk3Mg&amp;ixlib=rb-1.2.1&amp;h=1000" class="blog-post-card2-image" />
+                            <div class="blog-post-card2-container">
+                                <div class="blog-post-card2-container1">
+                                    <span class="blog-post-card2-text"><span>Feature 1</span></span>
+                                    <span class="blog-post-card2-text1"></span>
+                                </div>
+                                <h1 class="blog-post-card2-text2"><a href="{% url 'flashcard:studysets' %}"><span>C.R.R</span></a></h1>
+                                <span class="blog-post-card2-text3"><span>Create your own vocabulary studysets. Review your knowledge. Rinse and repeat. This is the first and the main feature that we would like to offer.</span></span>
+                                <div class="blog-post-card2-container2"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Feature 2: AI essay reviewer -->
+                <div class="home-container1">
+                    <a href="{% url 'english_mastermind:index' %}">
+                        <div class="blog-post-card2-blog-post-card blog-post-card2-root-class-name3">
+                            <img alt="image" src="{% static 'img\external\2.png' %}" image_src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fHBvcnRyYWl0fGVufDB8fHx8MTYyNjM3ODk3Mg&amp;ixlib=rb-1.2.1&amp;h=1000" class="blog-post-card2-image" />
+                            <div class="blog-post-card2-container">
+                                <div class="blog-post-card2-container1">
+                                    <span class="blog-post-card2-text"><span>Feature 2</span></span>
+                                    <span class="blog-post-card2-text1"></span>
+                                </div>
+                                <h1 class="blog-post-card2-text2"><span>Carolina</span></h1>
+                                <span class="blog-post-card2-text3"><span>Who is Carolina, I hear you ask? Say hello to your family friendly AI essay reviewer. If you have any paragraph that you would like to check for quality, ask her right away!</span></span>
+                                <div class="blog-post-card2-container2"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="home-container1">
+                    <a href="{% url 'carolina:index' %}">
+                        <div class="blog-post-card2-blog-post-card blog-post-card2-root-class-name2">
+                            <img alt="image" src="{% static 'img\external\3.png' %}" image_src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fHBvcnRyYWl0fGVufDB8fHx8MTYyNjM3ODk3Mg&amp;ixlib=rb-1.2.1&amp;h=1000" class="blog-post-card2-image" />
+                            <div class="blog-post-card2-container">
+                                <div class="blog-post-card2-container1">
+                                    <span class="blog-post-card2-text"><span>Feature 3</span></span>
+                                    <span class="blog-post-card2-text1"></span>
+                                </div>
+                                <h1 class="blog-post-card2-text2"><span>Cha biet la cai gi</span></h1>
+                                <span class="blog-post-card2-text3"><span>ai do bao vinh pham ghi noi dung vao day di, toi cung cha biet cai app 3 la cai gi nua hehe, nho ghi dai ra nhe khong la loi html</span></span>
+                                <div class="blog-post-card2-container2"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+
+            <!-- Footer -->
+            <div class="home-banner1">
+                <footer class="home-footer">
+                    <img alt="logo" src="{% static 'img\external\anglais_invert.png' %}" class="home-image" />
+                </footer>
+            </div>
         </div>
-        </div
-      ></div
-    >
-  </body>
+    </div>
+</body>
 </html>
 {% endblock %}
