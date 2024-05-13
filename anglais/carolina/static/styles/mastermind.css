@@ -1,0 +1,111 @@
+.home-image {
+  width: 100px; /* Điều chỉnh kích thước theo ý muốn */
+  height: auto; /* Để tự động điều chỉnh tỷ lệ chiều cao */
+  position: fixed; /* Để hình ảnh được cố định ở vị trí cố định trên màn hình */
+  top: 10px; /* Điều chỉnh khoảng cách từ top */
+  left: 20px; /* Điều chỉnh khoảng cách từ left */
+  z-index: 99; /* Đảm bảo hình ảnh hiển thị trên tất cả các phần tử khác */
+}
+.circle-button {
+  border: none; /* Xóa viền */
+  background-color: transparent; /* Xóa màu nền */
+  cursor: pointer; /* Biến con trỏ thành hình cần thiết khi di chuột qua */
+  padding: 0; /* Xóa padding */
+  overflow: hidden; /* Đảm bảo hình ảnh không vượt ra khỏi nút */
+  outline: none; /* Loại bỏ đường viền khi được focus */
+  transition: transform 0.3s ease-in-out; /* Hiệu ứng chuyển động */
+}
+body, html {
+  height: 100%;
+}
+
+
+.messages-box {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.messages-list {
+  padding-left: 0;
+}
+
+.message {
+  margin-bottom: 15px;
+  list-style: none;
+}
+
+.message-text {
+  padding: 10px;
+  
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.sent {
+  background-color: #dcf8c6;
+  align-self: flex-end;
+}
+.message-sender
+{
+  margin-bottom: 30px;
+}
+.icon {
+  display: inline-block; /* Hiển thị phần tử như một khối inline */
+  width: 30px; /* Định kích thước của biểu tượng */
+  height: 30px;
+  line-height: 30px; /* Đảm bảo nội dung được căn giữa theo chiều dọc */
+  text-align: center; /* Căn giữa nội dung */
+  border-radius: 50%; /* Tạo thành một hình tròn */
+  background-color: #f1f0f0; /* Màu nền của biểu tượng */
+  margin-right: 10px; /* Khoảng cách giữa biểu tượng và văn bản */
+  vertical-align: middle; /* Căn giữa theo chiều dọc */
+}
+
+.name {
+  margin-left: 0px; /* Khoảng cách giữa biểu tượng và tên */
+  vertical-align: middle; /* Căn giữa theo chiều dọc */
+  font-weight: 600;
+}
+.record-button {
+  margin-bottom: 10px;
+  margin-left: 45%;
+  font-size: 25px;
+  background-color: white; /* Màu nền của nút */
+  border: none; /* Không có viền */
+  cursor: pointer; /* Con trỏ chuột khi di chuột qua */
+}
+
+.message-content{
+  background-color: #f8f5f5;
+  border-radius: 0px 0px 5px 5px;
+  padding: 10px 10px;
+}
+
+.message-block {
+  border: 2px solid #e6e6e6; /* Tạo viền độ dày 2px và màu xám */
+  border-radius: 0px 10px 10px 10px; /* Bo tròn viền */
+  padding: 20px; /* Khoảng cách giữa nội dung và viền */
+  padding: 0px;
+}
+.prompt-clause {
+  background-color: #e9e9fa; /* Màu nền */
+  border-radius: 10px; /* Đường viền cong */
+  padding: 10px; /* Khoảng cách đệm bên trong */
+  margin-top: 15px; /* Khoảng cách phía trên */
+  border-radius: 0px 10px 10px 10px;
+  border: 2px solid #6fa9ff;
+}
+.received {
+  align-self: flex-start;
+  margin-left: 300px;
+  margin-right: 300px;
+}
+.next-button
+{
+  margin-top: 200px;
+  margin-left: 47.5%;
+  font-size: 25px;
+  background-color: white; /* Màu nền của nút */
+  border: none; /* Không có viền */
+  cursor: pointer; /* Con trỏ chuột khi di chuột qua */
+}
