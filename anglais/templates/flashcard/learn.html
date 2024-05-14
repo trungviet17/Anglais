@@ -1,12 +1,10 @@
-
-
 {% load static %}
 
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Frugal Pleased Eel</title>
+  <title>Review Time!</title>
   <meta property="og:title" content="Frugal Pleased Eel" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta charset="utf-8" />
@@ -88,14 +86,14 @@
 </head>
 
 <body>
-  <link rel="stylesheet" href="{% static 'styles\learn\style_learn.css' %}" />
+  <link rel="stylesheet" href="{% static 'css\learn\style_learn.css' %}" />
   <div>
-    <link href="{% static 'styles\learn\index_learn.css' %}" rel="stylesheet" />
+    <link href="{% static 'css\learn\index_learn.css' %}" rel="stylesheet" />
     <div class="home-container">
       <div class="home-banner">
         <h1 class="home-text">Review time!</h1>
         <p class="home-heading"> {{ studysets.title }} </p>
-        <img src="{% static 'images\external\bg8.png' %}" alt="image" class="home-image" />
+        <img src="{% static 'img\external\bg8.png' %}" alt="image" class="home-image" />
       </div>
 
       
@@ -108,7 +106,7 @@
             <div class="blog-post-card1-container">
               <a href="?index={{ prev_indx }}">
 
-                <img alt="profile" src="{% static 'images\external\left.png' %}" image_src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fG1hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTYyNjQzMTMwMw&amp;ixlib=rb-1.2.1&amp;h=1200" class="blog-post-card1-image"/>
+                <img alt="profile" src="{% static 'img\external\left.png' %}" image_src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fG1hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTYyNjQzMTMwMw&amp;ixlib=rb-1.2.1&amp;h=1200" class="blog-post-card1-image"/>
               </a>
             </div>
           </div>
@@ -119,7 +117,7 @@
             <div class="blog-post-card1-container">
                 <a href="?index={{ next_indx }}">
 
-                  <img alt="profile" src="{% static 'images\external\right.png' %}" image_src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fG1hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTYyNjQzMTMwMw&amp;ixlib=rb-1.2.1&amp;h=1200" class="blog-post-card1-image"/>
+                  <img alt="profile" src="{% static 'img\external\right.png' %}" image_src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fG1hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTYyNjQzMTMwMw&amp;ixlib=rb-1.2.1&amp;h=1200" class="blog-post-card1-image"/>
                 </a>
                 
             </div>
@@ -130,7 +128,7 @@
 
       {% comment %} <div class="home-blog">
         <div class="blog-post-card2-blog-post-card blog-post-card2-root-class-name3">
-          <img alt="image" src="{% static 'images\external\bg5.3.png' %}" image_src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fHBvcnRyYWl0fGVufDB8fHx8MTYyNjM3ODk3Mg&amp;ixlib=rb-1.2.1&amp;h=1000" class="blog-post-card2-image" />
+          <img alt="image" src="{% static 'img\external\bg5.3.png' %}" image_src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fHBvcnRyYWl0fGVufDB8fHx8MTYyNjM3ODk3Mg&amp;ixlib=rb-1.2.1&amp;h=1000" class="blog-post-card2-image" />
         </div>
         <span class="home-text06">
           <span>{{ curr_word.ori_word }}</span><br />
@@ -140,7 +138,7 @@
 
       <div class="home-blog">
         <div class="blog-post-card2-blog-post-card blog-post-card2-root-class-name3">
-          <img alt="image" src="{% static 'images\external\bg5.3.png' %}" image_src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fHBvcnRyYWl0fGVufDB8fHx8MTYyNjM3ODk3Mg&amp;ixlib=rb-1.2.1&amp;h=1000" class="blog-post-card2-image" />
+          <img alt="image" src="{% static 'img\external\bg5.3.png' %}" image_src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fHBvcnRyYWl0fGVufDB8fHx8MTYyNjM3ODk3Mg&amp;ixlib=rb-1.2.1&amp;h=1000" class="blog-post-card2-image" />
         </div>
         <span class="home-text06">
           <span>{{ curr_word.trans_word }}</span><br />
@@ -152,7 +150,7 @@
           <div class="flip-card-front">
             <div class="home-blog upper">
               <div class="blog-post-card2-blog-post-card blog-post-card2-root-class-name3">
-                <img alt="image" src="{% static 'images\external\bg5.3.png' %}" image_src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fHBvcnRyYWl0fGVufDB8fHx8MTYyNjM3ODk3Mg&amp;ixlib=rb-1.2.1&amp;h=1000" class="blog-post-card2-image" />
+                <img alt="image" src="{% static 'img\external\bg5.3.png' %}" image_src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fHBvcnRyYWl0fGVufDB8fHx8MTYyNjM3ODk3Mg&amp;ixlib=rb-1.2.1&amp;h=1000" class="blog-post-card2-image" />
               </div>
               <span class="home-text06">
                 <span>{{ curr_word.ori_word }}</span><br />
@@ -162,7 +160,7 @@
           <div class="flip-card-back">
             <div class="home-blog lower">
               <div class="blog-post-card2-blog-post-card blog-post-card2-root-class-name3">
-                <img alt="image" src="{% static 'images\external\bg5.3.png' %}" image_src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fHBvcnRyYWl0fGVufDB8fHx8MTYyNjM3ODk3Mg&amp;ixlib=rb-1.2.1&amp;h=1000" class="blog-post-card2-image" />
+                <img alt="image" src="{% static 'img\external\bg5.3.png' %}" image_src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fHBvcnRyYWl0fGVufDB8fHx8MTYyNjM3ODk3Mg&amp;ixlib=rb-1.2.1&amp;h=1000" class="blog-post-card2-image" />
               </div>
               <span class="home-text06">
                 <span>{{ curr_word.trans_word }}</span><br />
@@ -174,7 +172,7 @@
 
 
 
-      <img src="{% static 'images\external\bg7.png' %}" alt="image" class="home-image1" />
+      <img src="{% static 'img\external\bg7.png' %}" alt="image" class="home-image1" />
     </div>
   </div>
   <script>

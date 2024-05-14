@@ -58,6 +58,7 @@
 
 <body>
     <link rel="stylesheet" href="{% static 'css\dashboard\style_dashboard.css' %}" />
+    
     <div>
         <link href="{% static 'css\dashboard\index_dashboard.css' %}" rel="stylesheet" />
         <div class="sub-home-container">
@@ -123,11 +124,14 @@
 
 
             <!-- Footer -->
+            {% include "footer.html" %}
+            {% comment %}
             <div class="home-banner1">
                 <footer class="home-footer">
                     <img alt="logo" src="{% static 'img\external\anglais_invert.png' %}" class="home-image" />
                 </footer>
             </div>
+            {% endcomment %}
         </div>
     </div>
 </body>
