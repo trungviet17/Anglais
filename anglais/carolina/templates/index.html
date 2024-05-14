@@ -18,38 +18,33 @@
         <li class="message received">
           <div class="message-text">
             <div class="message-sender">
-              <b class = "icon"> 🐼 </b>
+              <b class = "icon"> 𓆤 </b>
               <b class = "name">Mastermind</b>
             </div>
-            
+            {%csrf_token%}
             <div class="message-block">
               <div class="record">
-                <button id="recordButton" class="record-button"> 📢 </button>
+                <button id="voiceButton" class="voice-button">▶</button>
               </div>
               <div class="message-content">
                 Hey there, I’m Mastermind! We’re about to have a quick chat. 
-                Just record your voice, and once we’re done, you’ll get some feedback on how you did.
-                First up, take a look at the text below. When you’re ready, just hit ‘Record’ and start reading it out loud.
+                First up, take a look at the text below. When you’re ready, just start reading it out loud.
               </div>
+              <audio id="audioPlayer" controls>
+                  <source src="{% static 'audio/first.wav' %}" type="audio/wav">
+                  <embed height="50" width="100" src="{% static 'audio/first.wav' %}">
+              </audio>
             </div>
-            <div class="prompt-clause">
-                Tim and Sally went to the park. They saw ducks in the pond.
-            </div>
+            <div class="prompt-clause"></div>
           </div>
         </li>
-
+        {%csrf_token%}
         <li class = "next-clause">
-
-          <button class="next-button"> ▶ </button>
-
+          <button class="next-button"> Learning a new clause </button>
         </li>
-
-
+        
       </ul>
 </div>
 
-
-    
-<script src="{% static 'styles/mastermind.js' %}"></script>
-
+<script src="{% static 'styles/main.js' %}"></script>
 {% endblock %}

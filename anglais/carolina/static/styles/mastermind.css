@@ -50,23 +50,25 @@ body, html {
   margin-bottom: 30px;
 }
 .icon {
-  display: inline-block; /* Hiển thị phần tử như một khối inline */
-  width: 30px; /* Định kích thước của biểu tượng */
-  height: 30px;
-  line-height: 30px; /* Đảm bảo nội dung được căn giữa theo chiều dọc */
-  text-align: center; /* Căn giữa nội dung */
-  border-radius: 50%; /* Tạo thành một hình tròn */
-  background-color: #f1f0f0; /* Màu nền của biểu tượng */
-  margin-right: 10px; /* Khoảng cách giữa biểu tượng và văn bản */
-  vertical-align: middle; /* Căn giữa theo chiều dọc */
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 35px; 
+  text-align: center;
+  border-radius: 50%;
+  background-color: #f1f0f0;
+  margin-right: 10px;
+  vertical-align: middle;
+  font-size: 30px; /* Kích thước chữ */
 }
+
 
 .name {
   margin-left: 0px; /* Khoảng cách giữa biểu tượng và tên */
   vertical-align: middle; /* Căn giữa theo chiều dọc */
   font-weight: 600;
 }
-.record-button {
+.voice-button {
   margin-bottom: 10px;
   margin-left: 45%;
   font-size: 25px;
@@ -74,7 +76,9 @@ body, html {
   border: none; /* Không có viền */
   cursor: pointer; /* Con trỏ chuột khi di chuột qua */
 }
-
+#audioPlayer {
+  display: none;
+}
 .message-content{
   background-color: #f8f5f5;
   border-radius: 0px 0px 5px 5px;
@@ -87,7 +91,7 @@ body, html {
   padding: 20px; /* Khoảng cách giữa nội dung và viền */
   padding: 0px;
 }
-.prompt-clause {
+.prompt-content {
   background-color: #e9e9fa; /* Màu nền */
   border-radius: 10px; /* Đường viền cong */
   padding: 10px; /* Khoảng cách đệm bên trong */
@@ -100,12 +104,37 @@ body, html {
   margin-left: 300px;
   margin-right: 300px;
 }
+
 .next-button
 {
-  margin-top: 200px;
-  margin-left: 47.5%;
+
+    margin-top: 200px;
+    margin-left: 40%;
+    font:normal normal 300 1.3em 'Open Sans';
+    text-decoration:none; 
+    
+    color:rgb(59, 154, 192);
+    background-color:transparent;
+    border:1px solid rgb(99, 195, 224);
+    border-radius:50px;
+    
+    padding: .3em 1.2em;
+        
+    background-size: 200% 100%; 
+    background-image: linear-gradient(to right, transparent 50%, rgb(36, 154, 175) 50%);
+    transition: background-position .3s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, 
+background-color .8s ease;
+}
+.next-button:hover
+{
+    color:rgba(255, 255, 255, 1);
+    background-color:rgb(62, 176, 196);
+    background-position: -100% 100%;
+}
+/* Optional: Customize the appearance of the button */
+.voice-button {
   font-size: 25px;
-  background-color: white; /* Màu nền của nút */
-  border: none; /* Không có viền */
-  cursor: pointer; /* Con trỏ chuột khi di chuột qua */
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
 }
