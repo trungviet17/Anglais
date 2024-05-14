@@ -93,4 +93,4 @@ def edit(request):
 
 
 def test(request): 
-    return render(request, 'login/index.html')
+    return render(request, 'account/index.html')

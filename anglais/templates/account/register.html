@@ -1,26 +1,80 @@
-{% extends "base1.html" %}
+{% extends 'base1.html' %}
 {% load static %}
+<!-- Created By CodingLab - www.codinglabweb.com -->
 
-{% block title %}Create an account{% endblock %}
+{% block title %} Registration Form {% endblock %}
+
 
 {% block content %}
 <!DOCTYPE html>
-<html lang="en">
-  <head></head>
-  <body>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+<body>
     <link rel="stylesheet" href="{% static 'css\account\general.css' %}" />
-    <div class="outer_most">
-      <h1>Create an account</h1>
-      <p>Please, sign up using the following form:</p>
+    <link rel="stylesheet" href="{% static 'css\register\style.css' %}" />
+    
+  <style>
+    #content{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background-color: rgb(248, 244, 239);
+     
+    }
+
+    .container{
+      margin-top:100px;
+    }
+
+  </style>
+
+  <div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
       <form method="post" action="{% url 'register' %}">
-
-        {{ userform.as_p }}
         {% csrf_token %}
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">User Name</span>
+            
+            <input type="text" placeholder="Enter your username" id="{{ userform.username.id_for_label }}" name="{{ userform.username.name }}" value="{{ userform.username.value|default_if_none:'' }}" required/> 
+          </div>
+          <div class="input-box">
+            <span class="details">First name</span>
+           
+            <input type="text" placeholder="Enter your username" id="{{ userform.first_name.id_for_label }}" name="{{ userform.first_name.name }}" value="{{ userform.first_name.value|default_if_none:'' }}" required/> 
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
 
-        <input type="submit" value="Create my account">
-        <input type="hidden" name="next" value="{{ next }}">
+           
+            <input type="email" placeholder="Enter your email" id="{{ userform.email.id_for_label }}" name="{{ userform.email.name }}" value="{{ userform.email.value|default_if_none:'' }}" required/> 
+          </div>
+          
+          <div class="input-box">
+            <span class="details">Password</span>
+            
+            <input type="password" placeholder="Enter your password" id="{{ userform.password.id_for_label }}" name="{{ userform.password.name }}" value="{{ userform.password.value|default_if_none:'' }}" required/> 
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="password" placeholder="Confirm your password" id="{{ userform.password2.id_for_label }}" name="{{ userform.password2.name }}" value="{{ userform.password2.value|default_if_none:'' }}" required/> 
+            
+          </div>
+        </div>
+        
+        <div class="submit-button">
+          <input type="submit" value="Register">
+          <input type="hidden" name="next" value="{{ next }}">
+        </div>
       </form>
     </div>
-  </body>
+  </div>
+  {% include "footer.html" %}
+</body>
 </html>
 {% endblock %}

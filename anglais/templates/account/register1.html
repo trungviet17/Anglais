@@ -1,0 +1,27 @@
+{% extends "base1.html" %}
+{% load static %}
+
+{% block title %}Create an account{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+  <head></head>
+  <body>
+    <link rel="stylesheet" href="{% static 'css\account\general.css' %}" />
+    <div class="outer_most">
+      <h1>Create an account</h1>
+      <p>Please, sign up using the following form:</p>
+      <form method="post" action="{% url 'register' %}">
+
+        
+        {{ userform.as_p}}
+        {% csrf_token %}
+
+        <input type="submit" value="Create my account">
+        <input type="hidden" name="next" value="{{ next }}">
+      </form>
+    </div>
+  </body>
+</html>
+{% endblock %}

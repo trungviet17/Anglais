@@ -8,9 +8,16 @@
   <!DOCTYPE html>
   <html lang="en">
     <head></head>
+    <link rel="stylesheet" href="{% static 'css\general\general.css' %}" />
+    <link rel="stylesheet" href="{% static 'css\workspace\workspace.css' %}" />
+
+    <style>
+        .outer_most{
+            min-height: 650px;
+        }
+    </style>
+
     <body>
-      <link rel="stylesheet" href="{% static 'css\general\general.css' %}" />
-      <link rel="stylesheet" href="{% static 'css\workspace\workspace.css' %}" />
       <div class="outer_most">
         <div class="header_card">
             {% comment %} <div class ="card-header card-header-secondary"> {% endcomment %}

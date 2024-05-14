@@ -11,6 +11,13 @@
     <body>
       <link rel="stylesheet" href="{% static 'css\general\general.css' %}" />
       <link rel="stylesheet" href="{% static 'css\new_word\new_word.css' %}" />
+
+      <style>
+        .outer_most{
+            min-height: 650px;
+        }
+
+      </style>
       <div class="outer_most">
         <h1 class="header">Add vocabulary</h1>
 
@@ -132,7 +139,7 @@
     
         </script>
     </div>
-
+    {% include "footer.html" %}
    
     </body>
   </html>
