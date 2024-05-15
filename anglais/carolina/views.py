@@ -9,15 +9,14 @@ from django.http import HttpResponse
 model = VitsModel.from_pretrained("facebook/mms-tts-eng")
 tokenizer = AutoTokenizer.from_pretrained("facebook/mms-tts-eng")
 
-text = "Hey there, I’m Mastermind! We’re about to have a quick chat. First up, take a look at the text below. When you’re ready, just start reading it out loud."
-inputs = tokenizer(text, return_tensors="pt")
-with torch.no_grad():
-    output = model(**inputs).waveform
+#text = "Hey there, I’m Mastermind! We’re about to have a quick chat. First up, click the button below to create a new clause. When you’re ready, just start reading it out loud."
+#inputs = tokenizer(text, return_tensors="pt")
+#with torch.no_grad():
+#    output = model(**inputs).waveform
 
-output_path = "carolina/static/audio/first.wav"
+#output_path = "carolina/static/audio/first.wav"
 
-# Write the tensor to an audio file
-# torchaudio.save(output_path, output, sample_rate=15000)
+#torchaudio.save(output_path, output, sample_rate=15000)
 
 
 @login_required

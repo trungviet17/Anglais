@@ -27,15 +27,14 @@
                 <button id="voiceButton" class="voice-button">▶</button>
               </div>
               <div class="message-content">
-                Hey there, I’m Mastermind! We’re about to have a quick chat. 
-                First up, take a look at the text below. When you’re ready, just start reading it out loud.
+                Hey there, I’m Mastermind! We’re about to have a quick chat. First up, click the button below to create a new clause. When you’re ready, just start reading it out loud.
               </div>
               <audio id="audioPlayer" controls>
                   <source src="{% static 'audio/first.wav' %}" type="audio/wav">
                   <embed height="50" width="100" src="{% static 'audio/first.wav' %}">
               </audio>
             </div>
-            <div class="prompt-clause"></div>
+            <div class="prompt-clause" id="promptClause"></div>
           </div>
         </li>
         {%csrf_token%}
