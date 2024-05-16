@@ -84,12 +84,10 @@ promptForm.addEventListener('click', (event)=>{
     buttonsCopy.forEach(button => {
         const nextSibling = button.nextElementSibling;
         if (nextSibling) {
-            console.log(1)
             promptForm.removeChild(nextSibling); // Remove line break after button
         }
         const nextNextSibling = button.nextElementSibling;
         if (nextNextSibling) {
-            console.log(2)
             promptForm.removeChild(nextNextSibling); // Remove another line break after button
         }
         promptForm.removeChild(button);

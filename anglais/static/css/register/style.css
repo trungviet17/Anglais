@@ -116,11 +116,11 @@ form .input-box span.details{
    letter-spacing: 1px;
    cursor: pointer;
    transition: all 0.3s ease;
-   background: linear-gradient(135deg, #71b7e6, #9b59b6);
+   
  }
  form .submit-button input:hover{
   
-  background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+  background: #0d6efd;
   }
  @media(max-width: 584px){
 

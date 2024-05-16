@@ -80,9 +80,13 @@
 
               <a class="home-text02 hide_on_small" href="{% url 'english_mastermind:index' %}">Mastermind</a>
             </span> 
-              
             
-            <span class="home-text03 hide_on_small">Blog</span>
+            <span {% if section == "" %}class="selected"{% endif %} >
+
+              <a class="home-text02 hide_on_small" href="{% url 'carolina:index' %}">Carolina</a>
+            </span> 
+            
+            
             {% comment %} <span class="home-text03">Hello {{ request.user.first_name|default:request.user.username }},</span> {% endcomment %}
           {% endif %}
         </nav>

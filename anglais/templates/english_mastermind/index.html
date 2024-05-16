@@ -1,62 +1,63 @@
-{% load bootstrap4 %}
+{% extends 'base1.html' %}
 {% load static %}
+{% load bootstrap4 %}
+
+{% block title %} Mastermind {% endblock %} 
+
+
 {% block content %}
 {% bootstrap_css %}
 {% bootstrap_javascript jquery='full' %}
-<link href="/static/styles/chatbot_mm.css" rel="stylesheet"/>
+<link href="{% static 'css/english_mastermind/mastermind.css' %}" rel="stylesheet"/>
 
-<div class="chat-container">
-  <div class="card flex-grow-1">
-    <div class="card-header bg-dark text-white">Chat</div>
+<style>
+  a {
+    color:#000000;
+    text-decoration:none;
+  }
+
+  a:hover {
+    color:#14147a;
+    text-decoration:none;
+  }
 
 
-    <div class="card-body messages-box">
+
+
+</style>
+<div class="card-body messages-box">
       
       <ul class="list-unstyled messages-list">
         
         <li class="message received">
           <div class="message-text">
             <div class="message-sender">
-              <b>Carolina</b>
+              <b class = "icon"> 𓆤 </b>
+              <b class = "name">Mastermind</b>
             </div>
-            <div class="message-content">
-              Hi and welcome,<br>
-              New to our app?
-              Check out the instructions:
+            {%csrf_token%}
+            <div class="message-block">
+              <div class="record">
+                <button id="voiceButton" class="voice-button">▶</button>
+              </div>
+              <div class="message-content">
+                Hey there, I’m Mastermind! We’re about to have a quick chat. First up, click the button below to create a new clause. When you’re ready, just start reading it out loud.
+              </div>
+              <audio id="audioPlayer" controls>
+                  <source src="{% static 'audio/first.wav' %}" type="audio/wav">
+                  <embed height="50" width="100" src="{% static 'audio/first.wav' %}">
+              </audio>
             </div>
+            <div class="prompt-clause" id="promptClause"></div>
           </div>
         </li>
+        {%csrf_token%}
+        <li class = "next-clause">
+          <button class="next-button"> Learning a new clause </button>
+        </li>
+        
       </ul>
-    <form class="prompt-form">
-      
-    </form>
-      
-      <script>
-        function hideSuggestions() {
-            event.preventDefault();
-            var suggestionButtons = document.querySelectorAll(".suggestion-prompt");
-            suggestionButtons.forEach(function(button) {
-                button.style.display = "none";
-            });
-        }
-      </script>
-
-
-    </div>
-    <br><br>
-    <br><br>
-    <br><br>
-  </div>
-  <form class="message-form">
-    {%csrf_token%}
-    <div class="input-group">
-      <input type="text" class="form-control message-input" placeholder="Type your message...">
-      <div class="input-group-append">
-        <button type="submit" class="btn btn-primary btn-send">Send</button>
-      </div>
-    </div>
-  </form>
 </div>
-<script src="{% static 'styles/chatbot_mm.js' %}"></script>
 
+<script src="{% static 'js/main.js' %}"></script>
 {% endblock %}

@@ -1,0 +1,83 @@
+{% extends "base1.html" %}
+
+{% load bootstrap4 %}
+{% load static %}
+
+{% block title %} Carolina {% endblock %}
+
+
+{% block content %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+<link href="{% static 'css/carolina/chatbot_mm.css' %}" rel="stylesheet"/>
+<style>
+  a {
+    color:#000000;
+    text-decoration:none;
+  }
+
+  a:hover {
+    color:#14147a;
+    text-decoration:none;
+  }
+
+
+
+</style>
+<div class="chat-container">
+  <div class="card flex-grow-1">
+    <div class="card-header bg-dark text-white">Chat</div>
+
+
+    <div class="card-body messages-box">
+      
+      <ul class="list-unstyled messages-list">
+        
+        <li class="message received">
+          <div class="message-text">
+            <div class="message-sender">
+              <b>Carolina</b>
+            </div>
+            <div class="message-content">
+              Hi and welcome,<br>
+              New to our app?
+              Check out the instructions:
+            </div>
+          </div>
+        </li>
+      </ul>
+    <form class="prompt-form">
+      
+    </form>
+      
+      <script>
+        function hideSuggestions() {
+            event.preventDefault();
+            var suggestionButtons = document.querySelectorAll(".suggestion-prompt");
+            suggestionButtons.forEach(function(button) {
+                button.style.display = "none";
+            });
+        }
+      </script>
+
+
+    </div>
+    <br><br>
+    <br><br>
+    <br><br>
+  </div>
+  <form class="message-form">
+    {%csrf_token%}
+    <div class="input-group">
+      <input type="text" class="form-control message-input" placeholder="Type your message...">
+      <div class="input-group-append">
+        <button type="submit" class="btn btn-primary btn-send">Send</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script src="{% static 'js/chatbot_mm.js' %}"></script>
+
+{% endblock %}
+

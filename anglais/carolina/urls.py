@@ -4,6 +4,6 @@ from . import views
 app_name = 'carolina'
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.chatbot_mastermind, name='index'),
 
 ]
