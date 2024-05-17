@@ -95,4 +95,4 @@ def edit(request):
 
 
 def test(request): 
-    return render(request, 'account/index.html')
+    return render(request, 'flashcard/flashcard.html')

@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/learn/flashcard.css' %}">
+    <title>Flashcards - Home</title>
+</head>
+<body>
+    <nav id = "header"> 
+        <a href="home.html" id = "backA"> <img src="../imgs/back.png" alt="" id = "backImg"></a>
+        <div></div>
+        <div class="right"></div>
+    </nav>
+    <div class="container" id = "FCcontent">
+        <h1 id = "headerText"></h1>
+        <div id="FC-container">
+            <div id="FC">
+                <div id = "front"> Trung </div>
+                <div id = "back"> Trung 2</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="row">
+                <div class="col">
+                    <img src="../imgs/reset.png" alt="" id ="reset">
+                </div>
+                <div class="col">
+                    <img src="../imgs/back.png" alt="" id = "goBack">
+                </div>
+                <div class="col">
+                    <span id = 'count'><span id = "current"></span><span id = "total"></span></span>
+                </div>
+                <div class="col">
+                    <img src="../imgs/forward.png" alt="" id ="goForward">
+                </div>
+                <div class="col">
+                    <img src="../imgs/shuffle.png" alt="" id = "shuffle">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/flashcard.js'  %}"></script>
+</body>
