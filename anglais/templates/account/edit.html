@@ -2,24 +2,115 @@
 {% load static %}
 
 
-{% block title %}Edit your account{% endblock %}
+{% block title %} Edit your account {% endblock %}
+
 
 {% block content %}
-
 <!DOCTYPE html>
 <html lang="en">
-  <head></head>
-  <body>
-    <link rel="stylesheet" href="{% static 'css\account\general.css' %}" />
-    <div class="outer_most">
-      <h1>Edit your account</h1>
-      <p>You can edit your account using the following form:</p>
-      <form method="post" enctype="multipart/form-data">
-         {{ user_form.as_p }}
-         {{ profile_form.as_p }}
-         {% csrf_token %}
-      <p><input type="submit" value="Save changes"></p>
-      </form>
-     </div>
-  </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{% static 'css/account/edit_account.css' %} ">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<style>
+    #content{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      
+     
+    }
+
+    .container{
+      margin-top:100px;
+    }
+
+    
+    a {
+        color:#000000;
+        text-decoration:none;
+    }
+
+    a:hover {
+        color:#14147a;
+        text-decoration:none;
+    }
+
+
+
+
+  </style>
+<body>
+    <div class="container light-style flex-grow-1 container-p-y">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+        <h4 class="font-weight-bold py-3 mb-4">
+            Account settings
+        </h4>
+        <div class="card overflow-hidden">
+
+            <div class="row no-gutters row-bordered row-border-light">
+                <div class="col-md-3 pt-0">
+                    <div class="list-group list-group-flush account-settings-links">
+                        <a class="list-group-item list-group-item-action active" data-toggle="list"
+                            href="#account-general">General</a>
+                        
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="tab-content">
+                        <div class="tab-pane fade active show" id="account-general">
+                           
+                                
+                                <hr class="border-light m-0">
+                                <div class="card-body">
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label">First Name</label>
+                                        <input type="text" placeholder="Enter your first name" id="{{ user_form.first_name.id_for_label }}" name="{{ user_form.first_name.name }}" value="{{ user_form.first_name.value|default_if_none:'' }}"class="form-control"> 
+                                    </div>
+    
+                                    <div class="form-group">
+                                        <label class="form-label">Last Name</label>
+                                        <input type="text" placeholder="Enter your last name" id="{{ user_form.last_name.id_for_label }}" name="{{ user_form.last_name.name }}" value="{{ user_form.last_name.value|default_if_none:'' }}" class="form-control"> 
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">E-mail</label>
+                                        <input type="email" placeholder="Enter your email" id="{{ user_form.email.id_for_label }}" name="{{ user_form.email.name }}" value="{{ user_form.email.value|default_if_none:'' }}"class="form-control"> 
+                                       
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Birthday</label>
+                                        <input type="text" placeholder="YYYY-MM-DD" id="{{ profile_form.date_of_birth.id_for_label }}" name="{{ profile_form.date_of_birth.name }}" value="{{ profile_form.date_of_birth.value|default_if_none:'' }}" class="form-control"> 
+                                    </div>
+                                   
+                                </div>
+
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-right mt-3">
+            <input type="submit"  value="Save Changes">
+        </div>
+    </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+   
+</body>
+
+</html>
+{% include "footer.html" %}
+
 {% endblock %}

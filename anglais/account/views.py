@@ -83,6 +83,8 @@ def edit(request):
             profile_form.save()
             messages.success(request, 'Profile update', 'successfully')
         else: 
+            print(user_form.errors)
+            print(profile_form.errors)
             messages.error(request, "Profile update", 'unsuccessfully')
 
     else:

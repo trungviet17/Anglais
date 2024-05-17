@@ -5,11 +5,11 @@ from django.forms import inlineformset_factory
 
 LANGUAGE_CHOICE = (
     (1, 'English'),
-    (2, 'VietNamese')
-    # (3, 'French'),
-    # (4, 'German'), 
-    # (5, 'Spanish'),
-    # (6, 'Spanish')
+    (2, 'VietNamese'),
+    (3, 'French'),
+    (4, 'German'), 
+    (5, 'Spanish'),
+    
 )
 
 

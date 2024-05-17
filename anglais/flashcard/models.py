@@ -36,6 +36,9 @@ class Word(models.Model):
     class  TypeOfWord(models.TextChoices): 
         ENGLISH = 'en'
         VIETNAMESE = 'vi'
+        FRENCH = 'fr'
+        GERMAN = 'de'
+        SPANISH = 'es'
 
 
     studyset = models.ForeignKey(StudySet, on_delete=models.CASCADE)
