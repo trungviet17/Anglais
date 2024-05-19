@@ -1,8 +1,8 @@
 ## Demo 
 - Link demo sản phẩm: [Anglais.com](https://anglais-nhom33.onrender.com)
 - Link báo cáo chi tiết sản phẩm :[Notion]( https://sparkly-magazine-bbc.notion.site/B-o-c-o-b-i-t-p-l-n-c-ng-ngh-ph-n-m-m-59372d741b694b23a6866bb57d57665d?pvs=4)
-- Video demo sản phẩm : [Video1](https://drive.google.com/file/d/1pCVs5XSKNgHtsFo_Z-ABNq9jVXfU3ECd/view?usp=sharing), [Video2](https://drive.google.com/file/d/1VLjAww3E9c3p_-jP5goQ7k0V0NmzRbjQ/view?usp=sharing)
-
+- Video demo sản phẩm : [Video phần 1](https://drive.google.com/file/d/1pCVs5XSKNgHtsFo_Z-ABNq9jVXfU3ECd/view?usp=sharing), [Video phần 2](https://drive.google.com/file/d/1VLjAww3E9c3p_-jP5goQ7k0V0NmzRbjQ/view?usp=sharing)
+- Link báo cáo pdf sản phẩm : [PDF](https://drive.google.com/file/d/1leogmF8Ogfd15S2x6jFDm2g3lAWHTANf/view?usp=sharing)
 <h1 align="center">
   <br>
   <img src ="./intro/Logo.jpg" alt="Markdownify" width="200"></img>
