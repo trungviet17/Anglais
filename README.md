@@ -35,8 +35,8 @@
 * Trợ lý ảo hỗ trợ học tiếng anh
   - Cung cấp phản hồi và giải đáp
   - Hỗ trợ việc viết tiếng anh và sửa lỗi từ vựng , ngữ pháp
-* Nâng cao khả năng speaking với Mastermind
-  - Luyện nói tiếng anh với giọng đọc chuẩn người bản ngữ
+* Nâng cao khả năng listening/speaking với Mastermind
+  - Luyện nói/nghe tiếng anh với giọng đọc chuẩn người bản ngữ
 
 
 
@@ -68,7 +68,6 @@ Hoa - sinh viên năm nhất ngành trí tuệ nhân tạo
 - Relevance : Hoa quan tâm đến ứng dụng học tiếng Anh để cải thiện kỹ năng ngôn ngữ của mình. Cô ấy muốn có thể giao tiếp một cách tự tin hơn trong công việc và học tập và tăng cơ hội thăng tiến trong sự nghiệp.
 - Education : Tốt nghiệp cấp 3 và có kiến thức cơ bản về công nghệ, thường xuyên sử dụng các ứng dụng văn phòng.
 
-<!-- You can [download](https://github.com/amitmerchant1990/electron-markdownify/releases/tag/v1.2.0) the latest installable version of Markdownify for Windows, macOS and Linux. -->
 
 ## Credits
 
@@ -77,7 +76,8 @@ Phần mềm sử dụng các thư viện, framework sau:
 
 - [Django](https://www.djangoproject.com/)
 - [Bootstrap](https://getbootstrap.com/)
-- [OpenAI](https://openai.com/blog/openai-api)
+- [Gemini]([https://openai.com/blog/openai-api](https://ai.google.dev/gemini-api?hl=vi))
+- [Huggingface](https://huggingface.co/facebook/mms-tts-eng)
 
 ## Contributor
 - [Nguyễn Ngô Việt Trung](https://github.com/trungviet17/) - 22022598 : Xây dựng backend, database 
