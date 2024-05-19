@@ -1,3 +1,7 @@
+## Demo 
+- Link demo sản phẩm: [Anglais.com](https://anglais-nhom33.onrender.com)
+- Link báo cáo chi tiết sản phẩm :[Notion]( https://sparkly-magazine-bbc.notion.site/B-o-c-o-b-i-t-p-l-n-c-ng-ngh-ph-n-m-m-59372d741b694b23a6866bb57d57665d?pvs=4)
+- Video demo sản phẩm : [Video1](https://drive.google.com/file/d/1pCVs5XSKNgHtsFo_Z-ABNq9jVXfU3ECd/view?usp=sharing), [Video2](https://drive.google.com/file/d/1VLjAww3E9c3p_-jP5goQ7k0V0NmzRbjQ/view?usp=sharing)
 
 <h1 align="center">
   <br>
@@ -34,10 +38,6 @@
 * Nâng cao khả năng speaking với Mastermind
   - Luyện nói tiếng anh với giọng đọc chuẩn người bản ngữ
 
-## Demo 
-- Link demo sản phẩm: [Anglais.com](https://anglais-nhom33.onrender.com)
-- Link báo cáo chi tiết sản phẩm :[Notion]( https://sparkly-magazine-bbc.notion.site/B-o-c-o-b-i-t-p-l-n-c-ng-ngh-ph-n-m-m-59372d741b694b23a6866bb57d57665d?pvs=4)
-- Video demo sản phẩm : [Video1](https://drive.google.com/file/d/1pCVs5XSKNgHtsFo_Z-ABNq9jVXfU3ECd/view?usp=sharing), [Video2](https://drive.google.com/file/d/1VLjAww3E9c3p_-jP5goQ7k0V0NmzRbjQ/view?usp=sharing)
 
 
 ## How To Use
