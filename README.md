@@ -1,4 +1,4 @@
-<h1>
+<h1 align="center">
   <br>
   <img src ="./intro/Logo.jpg" alt="Markdownify" width="200"></img>
   <br>
